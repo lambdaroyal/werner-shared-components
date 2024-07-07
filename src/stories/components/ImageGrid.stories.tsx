@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from 'storybook-solidjs';
-import { ImageGrid } from '../../components/ImageGrid';
+import { Image, ImageGrid, ImageGridProps } from '../../components/ImageGrid';
 
 
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/solid/writing-stories/introduction
-const meta = {
+const meta: Meta<ImageGridProps> = {
     title: 'Components/ImageGrid',
     component: ImageGrid,
-    tags: ['autodocs'],
-} satisfies Meta<typeof ImageGrid>;
+    tags: ['autodocs']
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -19,27 +19,31 @@ export const OneImage: Story = {
 };
 
 export const ManyImages: Story = {
-    render: () => <div class="tailwind"><ImageGrid images={[{
-        title: "", filename: ""
-        , source: "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
-    }, {
-        title: "", filename: ""
-        , source: "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg"
-    }, {
-        title: "", filename: ""
-        , source: "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
-    }]} /></div>
+    args: {
+        images: [{
+            title: "", filename: ""
+            , source: "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
+        }, {
+            title: "", filename: ""
+            , source: "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg"
+        }, {
+            title: "", filename: ""
+            , source: "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
+        }]
+    }
 };
 
 export const ManyImagesWithDownload: Story = {
-    render: () => <div class="tailwind"><ImageGrid downloadAllowed={true} onDelete={(s:string) => { }} images={[{
-        title: "", filename: ""
-        , source: "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
-    }, {
-        title: "", filename: ""
-        , source: "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg"
-    }, {
-        title: "", filename: ""
-        , source: "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
-    }]} /></div>
+    args: {
+        downloadAllowed: true, onDelete: (s: Image) => { }, images: [{
+            title: "", filename: ""
+            , source: "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
+        }, {
+            title: "", filename: ""
+            , source: "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg"
+        }, {
+            title: "", filename: ""
+            , source: "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
+        }]
+    }
 };

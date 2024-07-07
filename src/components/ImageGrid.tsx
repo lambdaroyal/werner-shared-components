@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { makeId } from "../lib/utils";
 import { I18nTag } from "./I18nTag";
 
-interface Image {
+export interface Image {
   source: string;
   title: string;
   filename: string;
