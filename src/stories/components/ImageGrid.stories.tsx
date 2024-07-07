@@ -32,7 +32,7 @@ export const ManyImages: Story = {
 };
 
 export const ManyImagesWithDownload: Story = {
-    render: () => <div class="tailwind"><ImageGrid downloadAllowed={true} onDelete={(s) => { }} images={[{
+    render: () => <div class="tailwind"><ImageGrid downloadAllowed={true} onDelete={(s:string) => { }} images={[{
         title: "", filename: ""
         , source: "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
     }, {
