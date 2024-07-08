@@ -71,7 +71,6 @@ export const ImageGrid = (props: ImageGridProps) => {
 
       }
     });
-    debugger;
     const [actionsAvailable, setActionsAvailable] = createSignal<boolean>(false);
     return (<Show when={props.images[index()]}>
       <div class={clsx("w-full sm:w-96 flex scroll-snap", p.class)}>

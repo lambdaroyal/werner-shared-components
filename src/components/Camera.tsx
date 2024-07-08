@@ -34,7 +34,6 @@ export const Camera = (props: CameraProps) => {
     ctx.drawImage(videoNode()!, 0, 0);
     const base64 = canvas()!.toDataURL("image/png");
     onStop();
-    debugger;
     props.onSubmit(base64);
   };
 
