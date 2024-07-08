@@ -1,6 +1,7 @@
 // vite.config.ts
 import { defineConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
     build: {
@@ -20,5 +21,8 @@ export default defineConfig({
             },
         },
     },
-    plugins: [solidPlugin()],
+    plugins: [dts(), solidPlugin()],
 });
+
+
+
