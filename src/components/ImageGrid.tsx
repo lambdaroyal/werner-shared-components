@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { createSignal, Show } from "solid-js";
+import { createEffect, createSignal, onCleanup, onMount, Show } from "solid-js";
 import { I18nTag } from "./I18nTag";
 import { AiOutlineDelete, FiDownloadCloud } from "./icons";
 
@@ -39,6 +39,7 @@ export const ImageGrid = (props: ImageGridProps) => {
   // https://daisyui.com/components/carousel/#carousel-with-nextprev-buttons
   const Carousel = (p: { class?: string }) => {
     const [index, setIndex] = createSignal<number>(0);
+    const [imgRef, setImageRef] = createSignal<HTMLImageElement>()
     const leftButtonClick = () => {
       setIndex(Math.max(0, index() - 1));
       return false;
@@ -48,13 +49,36 @@ export const ImageGrid = (props: ImageGridProps) => {
     // width strategy: mobile first
     // we allow for full width on mobile
 
+    createEffect(() => {
+      const img = imgRef();
+      if (img) {
+        const parentDiv = img.parentElement as HTMLElement;
+
+        const onImageLoad = () => {
+          // Adjust the layout if needed
+          parentDiv.style.minHeight = 'auto'; // Remove the minimum height once the image is loaded
+        };
+
+        if (img.complete) {
+          onImageLoad(); // If the image is already loaded
+        } else {
+          img.addEventListener('load', onImageLoad);
+        }
+
+        onCleanup(() => {
+          img.removeEventListener('load', onImageLoad);
+        });
+
+      }
+    });
+    debugger;
     const [actionsAvailable, setActionsAvailable] = createSignal<boolean>(false);
     return (<Show when={props.images[index()]}>
       <div class={clsx("w-full sm:w-96 flex scroll-snap", p.class)}>
         <div class="relative w-full group" onmouseenter={() => { setActionsAvailable(true) }} onmouseleave={() => { setActionsAvailable(false) }}>
-          <img
+          <img ref={setImageRef}
             src={props.images[index()].source}
-            class="w-full" />
+            class="w-full m-h-24" />
           <div class="flex justify-between items-center absolute top-0 bottom-0 left-5 right-5">
             <Show when={props.images.length > 1}>
               <button class="btn btn-circle no-animation" onClick={leftButtonClick} // transform -translate-y-1/2
