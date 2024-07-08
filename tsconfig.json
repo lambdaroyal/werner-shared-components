@@ -20,8 +20,8 @@
             "ESNext",
             "DOM"
         ],
-        "typeRoots": [
-            "./node_modules/@types"
+        "types": [
+            "vite/client"
         ]
     },
     "include": [
@@ -29,8 +29,6 @@
     ],
     "exclude": [
         "node_modules",
-        "dist",
-        ".storybook",
-        "src/**/*.stories.tsx"
+        "dist"
     ]
 }

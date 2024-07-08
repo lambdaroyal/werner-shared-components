@@ -1,9 +1,7 @@
-import { createSignal, For, Match, Show, Switch } from "solid-js";
-import { I18n } from "../lib/i18n";
-import { AiOutlineDelete, FiDownloadCloud } from "./icons";
 import clsx from "clsx";
-import { makeId } from "../lib/utils";
+import { createSignal, Show } from "solid-js";
 import { I18nTag } from "./I18nTag";
+import { AiOutlineDelete, FiDownloadCloud } from "./icons";
 
 export interface Image {
   source: string;
