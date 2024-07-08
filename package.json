@@ -1,8 +1,9 @@
 {
   "name": "werner-shared-components",
   "description": "shared components for werner-pwa and werner-server",
-  "version": "1.0.3",
-  "main": "dist/index.js",
+  "version": "1.0.4",
+  "main": "dist/werner-shared-components.umd.js",
+  "module": "dist/werner-shared-components.es.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "clean": "npm run clean:root",
