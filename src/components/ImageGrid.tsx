@@ -39,7 +39,6 @@ export const ImageGrid = (props: ImageGridProps) => {
   // https://daisyui.com/components/carousel/#carousel-with-nextprev-buttons
   const Carousel = (p: { class?: string }) => {
     const [index, setIndex] = createSignal<number>(0);
-    const [imgRef, setImageRef] = createSignal<HTMLImageElement>()
     const leftButtonClick = () => {
       setIndex(Math.max(0, index() - 1));
       return false;
@@ -49,41 +48,34 @@ export const ImageGrid = (props: ImageGridProps) => {
     // width strategy: mobile first
     // we allow for full width on mobile
 
-    createEffect(() => {
-      const img = imgRef();
-      if (img) {
-        const parentDiv = img.parentElement as HTMLElement;
-
-        const onImageLoad = () => {
-          // Adjust the layout if needed
-          parentDiv.style.minHeight = 'auto'; // Remove the minimum height once the image is loaded
-        };
-
-        if (img.complete) {
-          onImageLoad(); // If the image is already loaded
-        } else {
-          img.addEventListener('load', onImageLoad);
-        }
-
-        onCleanup(() => {
-          img.removeEventListener('load', onImageLoad);
-        });
-
-      }
-    });
     const [actionsAvailable, setActionsAvailable] = createSignal<boolean>(false);
     return (<Show when={props.images[index()]}>
       <div class={clsx("w-full sm:w-96 flex scroll-snap", p.class)}>
-        <div class="relative w-full group" onmouseenter={() => { setActionsAvailable(true) }} onmouseleave={() => { setActionsAvailable(false) }}>
-          <img ref={setImageRef}
+        <div class="w-full group" onmouseenter={() => { setActionsAvailable(true) }} onmouseleave={() => { setActionsAvailable(false) }}>
+          <img
             src={props.images[index()].source}
             class="w-full m-h-24" />
-          <div class="flex justify-between items-center absolute top-0 bottom-0 left-5 right-5">
+          <div class="flex justify-between items-center">
             <Show when={props.images.length > 1}>
               <button class="btn btn-circle no-animation" onClick={leftButtonClick} // transform -translate-y-1/2
                 style={`visibility: ${index() != 0 ? "initial" : "hidden"};`}>
                 ❮
               </button>
+              <Show when={actionsAvailable()}>
+                <div class="flex justify-center items-center gap-2">
+                  <Show when={props.downloadAllowed}>
+                    <DownloadButton image={props.images[index()]} />
+                  </Show>
+                  <Show when={props.onDelete}>
+                    <button class="btn btn-sm btn-warning">
+                      <AiOutlineDelete />
+                      <I18nTag>Delete</I18nTag>
+                    </button>
+                  </Show>
+
+                </div>
+
+              </Show>
 
               <button class="btn btn-circle no-animation" onClick={rightButtonClick}
                 style={`visibility: ${index() < props.images.length - 1 ? "initial" : "hidden"};`}>
@@ -92,21 +84,6 @@ export const ImageGrid = (props: ImageGridProps) => {
             </Show>
 
           </div>
-          <Show when={actionsAvailable()}>
-            <div class="flex justify-center items-center gap-2 absolute bottom-2 left-5 right-5">
-              <Show when={props.downloadAllowed}>
-                <DownloadButton image={props.images[index()]} />
-              </Show>
-              <Show when={props.onDelete}>
-                <button class="btn btn-sm btn-warning">
-                  <AiOutlineDelete />
-                  <I18nTag>Delete</I18nTag>
-                </button>
-              </Show>
-
-            </div>
-
-          </Show>
         </div>
       </div>
     </Show>
