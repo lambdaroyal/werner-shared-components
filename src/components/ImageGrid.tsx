@@ -67,7 +67,7 @@ export const ImageGrid = (props: ImageGridProps) => {
                     <DownloadButton image={props.images[index()]} />
                   </Show>
                   <Show when={props.onDelete}>
-                    <button class="btn btn-sm btn-warning">
+                    <button class="btn btn-sm btn-warning" onclick={_ => props.onDelete!(props.images[index()])}>
                       <AiOutlineDelete />
                       <I18nTag>Delete</I18nTag>
                     </button>
