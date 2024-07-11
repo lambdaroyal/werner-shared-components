@@ -1,7 +1,7 @@
 {
   "name": "werner-shared-components",
   "description": "shared components for werner-pwa and werner-server",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "main": "dist/werner-shared-components.umd.js",
   "module": "dist/werner-shared-components.es.js",
   "types": "dist/index.d.ts",
@@ -28,6 +28,7 @@
     "@types/papaparse": "^5.3.14",
     "autoprefixer": "^10.4.19",
     "copyfiles": "^2.4.1",
+    "@motionone/solid": "^10.16.4",
     "daisyui": "^4.12.10",
     "postcss": "^8.4.39",
     "sass": "^1.77.6",

@@ -45,5 +45,30 @@ export const ManyImagesWithDownload: Story = {
             title: "", filename: ""
             , source: "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
         }]
+    },
+    render: (args) => {
+        return <div>
+            <dialog id="my_modal_1" class="modal">
+                <div class="modal-box">
+                    <h3 class="text-lg font-bold">Hello!</h3>
+                    <p class="py-4">Press ESC key or click the button below to close</p>
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <button class="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+            <ImageGrid downloadAllowed={true} onDelete={() => (document.getElementById('my_modal_1') as any)!.showModal()} images={[{
+                title: "", filename: ""
+                , source: "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
+            }, {
+                title: "", filename: ""
+                , source: "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg"
+            }, {
+                title: "", filename: ""
+                , source: "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
+            }]} />
+        </div>
     }
 };

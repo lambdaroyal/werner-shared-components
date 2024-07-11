@@ -59,7 +59,7 @@ export const Camera = (props: CameraProps) => {
   });
 
   return (
-    <div class="fullscreen-modal">
+    <div class="vlicCamera fullscreen-modal">
       <Show when={!state.running}>
         <a class="front-back" onclick={toggleFrontOrBack}>
           <span class="glyphicons glyphicons-retweet" />
@@ -73,7 +73,7 @@ export const Camera = (props: CameraProps) => {
           <I18nTag>upload image</I18nTag>
         </button>
         <button class="btn btn-secondary" onclick={props.hideCamera}>
-          Cancel
+          <I18nTag>Cancel</I18nTag>
         </button>
       </div>
     </div>
