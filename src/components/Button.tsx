@@ -15,7 +15,7 @@ function ArrowIcon(props: { [key: string]: any }) {
   )
 }
 
-const variantStyles = {
+export const ButtonVariantStyles = {
   primary:
     'btn-primary',
   secondary:
@@ -26,7 +26,7 @@ const variantStyles = {
 }
 
 export type ButtonProps = {
-  variant?: keyof typeof variantStyles,
+  variant?: keyof typeof ButtonVariantStyles,
   children?: JSXElement | JSXElement[] | string,
   href?: string,
   arrow?: 'left' | 'right'
@@ -42,7 +42,7 @@ export const Button: Component<{
 
   const classes = clsx(
     'inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition items-center btn btn-sm',
-    props.variant ? variantStyles[props.variant] : undefined,
+    props.variant ? ButtonVariantStyles[props.variant] : undefined,
     props.class,
   );
 

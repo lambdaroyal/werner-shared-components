@@ -9,7 +9,7 @@ import { I18n } from '../lib/i18n'
 import { isNotEmpty } from '../lib/utils'
 import { CopyHandle } from './CopyHandle'
 
-const variantStyles = {
+export const TagVariantStyles = {
   small: '',
   medium: 'rounded-lg px-1.5 ring-1 ring-inset my-0.5',
 }
@@ -65,7 +65,7 @@ const valueColorMap = {
 
 export type TagProps = {
   children: (keyof typeof valueColorMap & (string | {})) | JSXElement | JSXElement[]
-  variant?: keyof typeof variantStyles
+  variant?: keyof typeof TagVariantStyles
   color?: keyof typeof colorStyles
   iconFn?: () => JSXElement
   copyFn?: () => string
@@ -91,7 +91,7 @@ export function Tag({
       title={tooltip_()}
       class={clsx(
         'font-mono text-[0.625rem] icon-with-text copy-handle-container vlicTag',
-        variantStyles[variant],
+        TagVariantStyles[variant],
         colorStyles[color][variant],
       )}
     >
