@@ -14,7 +14,7 @@ export const TagVariantStyles = {
   medium: 'rounded-lg px-1.5 ring-1 ring-inset my-0.5',
 }
 
-const colorStyles = {
+export const TagColorStyles = {
   emerald: {
     small: 'text-emerald-500 dark:text-emerald-400',
     medium:
@@ -61,12 +61,12 @@ const valueColorMap = {
   POST: 'sky',
   PUT: 'amber',
   DELETE: 'rose',
-} as Record<string, keyof typeof colorStyles>
+} as Record<string, keyof typeof TagColorStyles>
 
 export type TagProps = {
   children: (keyof typeof valueColorMap & (string | {})) | JSXElement | JSXElement[]
   variant?: keyof typeof TagVariantStyles
-  color?: keyof typeof colorStyles
+  color?: keyof typeof TagColorStyles
   iconFn?: () => JSXElement
   copyFn?: () => string
   tooltip?: string,
@@ -92,7 +92,7 @@ export function Tag({
       class={clsx(
         'font-mono text-[0.625rem] icon-with-text copy-handle-container vlicTag',
         TagVariantStyles[variant],
-        colorStyles[color][variant],
+        TagColorStyles[color][variant],
       )}
     >
 

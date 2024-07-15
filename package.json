@@ -1,7 +1,7 @@
 {
   "name": "werner-shared-components",
   "description": "shared components for werner-pwa and werner-server",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "main": "dist/werner-shared-components.umd.js",
   "module": "dist/werner-shared-components.es.js",
   "types": "dist/index.d.ts",
