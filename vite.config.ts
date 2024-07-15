@@ -2,6 +2,8 @@
 import { defineConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
 import dts from 'vite-plugin-dts'
+import copy from 'rollup-plugin-copy';
+import sassDts from 'vite-plugin-sass-dts';
 
 export default defineConfig({
     build: {
@@ -21,7 +23,15 @@ export default defineConfig({
             },
         },
     },
-    plugins: [dts(), solidPlugin()],
+    plugins: [dts(),
+    solidPlugin(),
+    sassDts(),
+    copy({
+        targets: [
+            { src: 'src/**/*.scss', dest: 'dist' }
+        ],
+        hook: 'writeBundle'
+    }),],
 });
 
 

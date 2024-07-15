@@ -3,11 +3,11 @@ import { createEffect, createSignal, onMount, Show } from "solid-js";
 import "./Camera.scss";
 import { I18nTag } from "./I18nTag";
 
-import { longRunningBusyIndicator } from "./LongRunningBusyIndicator";
+import { GuardedActivity } from "./GuardedActivity";
 
-interface CameraProps {
+export interface CameraProps {
   hideCamera: () => void;
-  onSubmit: (base64: string) => void;
+  onSubmit: (base64: string) => Promise<any>;
   onError: (e: Error) => void
 }
 
@@ -16,7 +16,6 @@ export const Camera = (props: CameraProps) => {
   const [frontOrBack, setFrontOrBack] = createSignal(false);
   const toggleFrontOrBack = () => setFrontOrBack((v) => !v);
 
-  const { state, Component, onStart, onStop } = longRunningBusyIndicator({ timeOut: 1 });
 
   // vars for referencing the canvas and 2dCanvas context
   const [canvas, setCanvas] = createSignal<HTMLCanvasElement>();
@@ -28,13 +27,11 @@ export const Camera = (props: CameraProps) => {
 
 
   const onClick = function () {
-    onStart();
     canvas()!.width = videoNode()!.videoWidth;
     canvas()!.height = videoNode()!.videoHeight;
     ctx.drawImage(videoNode()!, 0, 0);
     const base64 = canvas()!.toDataURL("image/png");
-    onStop();
-    props.onSubmit(base64);
+    return props.onSubmit(base64);
   };
 
   onMount(() => {
@@ -60,18 +57,15 @@ export const Camera = (props: CameraProps) => {
 
   return (
     <div class="vlicCamera fullscreen-modal">
-      <Show when={!state.running}>
-        <a class="front-back" onclick={toggleFrontOrBack}>
-          <span class="glyphicons glyphicons-retweet" />
-        </a>
-      </Show>
+      <a class="front-back" onclick={toggleFrontOrBack}>
+        <span class="glyphicons glyphicons-retweet" />
+      </a>
       <video autoplay class="camera-centered" webkit-playsinline="true" playsinline ref={setVideoNode} />
       <canvas style="display: none" ref={setCanvas} />
       <div class="flex justify-center fixed gap-2 px-8 pb-4 w-full bottom-0">
-        <button class="btn btn-primary flex flex-row flex-nowrap" onclick={onClick}>
-          <Component />
+        <GuardedActivity worker={() => onClick()} class="btn btn-primary">
           <I18nTag>upload image</I18nTag>
-        </button>
+        </GuardedActivity>
         <button class="btn btn-secondary" onclick={props.hideCamera}>
           <I18nTag>Cancel</I18nTag>
         </button>

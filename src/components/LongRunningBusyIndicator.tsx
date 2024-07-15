@@ -32,9 +32,9 @@ export const longRunningBusyIndicator = function ({ timeOut = 500, message }: { 
             clearTimeout(timeout);
         },
         Component: function ({ children }: { children?: JSXElement | JSXElement[] }) {
-            return <div class="flex relative items-center">
+            return <div class="flex items-center">
                 <Show when={state.running && state.busyIndicating}>
-                    <div class="absolute flex centered gap-x-4">
+                    <div class="flex centered gap-x-2">
                         <span class="loading loading-ring loading-sm"></span>
 
 
