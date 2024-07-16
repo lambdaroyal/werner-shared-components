@@ -10,8 +10,8 @@ import { isNotEmpty } from '../lib/utils'
 import { CopyHandle } from './CopyHandle'
 
 export const TagVariantStyles = {
-  small: 'px-1.5 rounded-lg ring-1 ring-inset py-0.5',
-  medium: 'px-1.5 rounded-lg ring-1 ring-inset py-1 text-sm',
+  small: 'rounded-lg ring-1 ring-inset py-0.5',
+  medium: 'rounded-lg ring-1 ring-inset py-1 text-sm',
 }
 
 export const TagColorStyles = {
@@ -94,6 +94,7 @@ export function Tag({
   return (
 
     <span
+      style={{ "padding-left": "0.375rem", "padding-right": "0.375rem" }}
       data-toggle="tooltip"
       data-placement="top"
       title={tooltip_()}
