@@ -10,57 +10,65 @@ import { isNotEmpty } from '../lib/utils'
 import { CopyHandle } from './CopyHandle'
 
 export const TagVariantStyles = {
-  small: '',
-  medium: 'rounded-lg px-1.5 ring-1 ring-inset my-0.5',
+  small: 'rounded-lg px-1.5 ring-1 ring-inset py-0.5',
+  medium: 'rounded-lg px-1.5 ring-1 ring-inset py-1 text-sm',
 }
 
 export const TagColorStyles = {
-  emerald: {
-    small: 'text-emerald-500 dark:text-emerald-400',
+  accent: {
+    small: 'text-accent-content bg-accent ring-accent',
     medium:
-      'ring-emerald-300 dark:ring-emerald-400/30 bg-emerald-400/10 text-emerald-500 dark:text-emerald-400',
-  },
-  sky: {
-    small: 'text-sky-500',
-    medium:
-      'ring-sky-300 bg-sky-400/10 text-sky-500 dark:ring-sky-400/30 dark:bg-sky-400/10 dark:text-sky-400',
+      'text-accent-content bg-accent ring-accent',
   },
   // for something that needs attention
-  amber: {
-    small: 'text-amber-500',
+  warning: {
+    small: 'text-warning-content bg-warning ring-warning',
     medium:
-      'ring-amber-300 bg-amber-400/10 text-amber-500 dark:ring-amber-400/30 dark:bg-amber-400/10 dark:text-amber-400',
+      'text-warning-content bg-warning ring-warning',
   },
   // for something pending or an error
-  rose: {
-    small: 'text-red-500 dark:text-rose-500',
+  error: {
+    small: 'text-error-content bg-error ring-error',
     medium:
-      'ring-rose-200 bg-rose-50 text-red-500 dark:ring-rose-500/20 dark:bg-rose-400/10 dark:text-rose-400',
+      'text-error-content bg-error ring-error',
   },
   // for an info
-  zinc: {
-    small: 'text-zinc-400 dark:text-zinc-500',
+  info: {
+    small: 'text-info-content bg-info ring-info',
     medium:
-      'ring-zinc-200 bg-zinc-50 text-zinc-500 dark:ring-zinc-500/20 dark:bg-zinc-400/10 dark:text-zinc-400',
+      'text-info-content bg-info ring-info',
   },
   // for something that is ok or dispatched
-  inherit: {
-    small: 'text-green-400 dark:text-green-500',
+  success: {
+    small: 'text-success-content bg-success ring-success',
     medium:
-      'ring-green-200 bg-green-50 text-green-500 dark:ring-green-500/20 dark:bg-green-400/10 dark:text-green-400',
+      'ring-success text-success-content bg-success ring-success',
   },
   outline: {
-    small: 'ring-zinc-900/5 dark:ring-white/5',
+    small: 'ring-primary-content text-primary-content',
     medium:
-      'ring-zinc-900/5 dark:ring-white/5',
+      'ring-primary-content text-primary-content',
+  },
+  primary: {
+    small: 'ring-primary-content bg-primary ring-primary text-primary-content',
+    medium:
+      'ring-primary-content bg-primary ring-primary text-primary-content',
+
+  },
+  secondary: {
+    small: 'ring-secondary-content bg-secondary ring-secondary text-secondary-content',
+    medium:
+      'ring-secondary-content bg-secondary ring-secondary text-secondary-content',
+
   }
+
 }
 
 const valueColorMap = {
-  GET: 'emerald',
-  POST: 'sky',
-  PUT: 'amber',
-  DELETE: 'rose',
+  GET: 'accent',
+  POST: 'info',
+  PUT: 'warning',
+  DELETE: 'error',
 } as Record<string, keyof typeof TagColorStyles>
 
 export type TagProps = {
@@ -79,7 +87,7 @@ export function Tag({
   localizeTooltip = false,
   copyFn = undefined,
   variant = 'medium',
-  color = 'inherit',
+  color = 'primary',
   iconFn = undefined
 }: TagProps) {
   const tooltip_ = (isNotEmpty(tooltip) && localizeTooltip) ? I18n.reactiveLocalize(tooltip!) : () => tooltip;
@@ -90,7 +98,7 @@ export function Tag({
       data-placement="top"
       title={tooltip_()}
       class={clsx(
-        'font-mono text-[0.625rem] icon-with-text copy-handle-container vlicTag',
+        'font-mono text-[0.625rem] icon-with-text copy-handle-container vlicTag inline-flex items-center gap-x-1',
         TagVariantStyles[variant],
         TagColorStyles[color][variant],
       )}
@@ -99,7 +107,7 @@ export function Tag({
       <Show when={iconFn}>{iconFn!()}</Show>
       {children}
       <Show when={copyFn}>
-        <CopyHandle copyFn={copyFn!} />
+        <CopyHandle copyFn={copyFn!} class="font-thin" />
       </Show>
     </span>
   )

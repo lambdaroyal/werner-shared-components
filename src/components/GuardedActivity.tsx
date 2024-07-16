@@ -62,7 +62,7 @@ export const GuardedActivity = (props: GuardedActivityProps & Pick<ButtonProps, 
             <SpinnerComponent>
                 {props.children}
                 <Show when={props.confirmationNeeded && confirmState().showConfirm}>
-                    <div class="ml-2"><Tag localizeTooltip={true} tooltip='This critical operation needs to be confirmed by a second click' color='rose' iconFn={() => <IoCheckmarkDone />}>2x</Tag></div>
+                    <div class="ml-2"><Tag localizeTooltip={true} tooltip='This critical operation needs to be confirmed by a second click' color='warning' iconFn={() => <IoCheckmarkDone />}>2x</Tag></div>
                 </Show>
 
             </SpinnerComponent>

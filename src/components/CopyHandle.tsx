@@ -1,22 +1,22 @@
 import { Motion } from "@motionone/solid";
 import { OcCopy3 } from "./icons";
 import { I18n } from "../lib/i18n";
-import { Show, createSignal } from "solid-js";
+import { Show, createSignal, splitProps } from "solid-js";
 
-export function CopyHandle(props: { copyFn: () => string }) {
+export function CopyHandle(props: { class?: string, copyFn: () => string }) {
     const label = I18n.reactiveLocalize("click to copy")
     const copied = I18n.reactiveLocalize("copied")
     const clicked = createSignal<boolean>(false);
-    return <a onclick={() => {
+    return <a class="CopyHandle" onclick={() => {
         const content = props.copyFn!();
         navigator.clipboard.writeText(content);
         clicked[1](true);
         setTimeout(() => {
             clicked[1](false);
         }, 2000);
-    }} class="copy-handle" data-toogle="tooltip" data-placement="top" title={label()}>
+    }} data-toogle="tooltip" data-placement="top" title={label()}>
         <div class="flex items-center">
-            <OcCopy3 />
+            <OcCopy3 {...(splitProps(props, ["copyFn"])[0])} />
             <Show when={clicked[0]()}>
                 <Motion.div
                     initial={{ opacity: 0 }}
