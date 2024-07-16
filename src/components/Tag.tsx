@@ -98,7 +98,7 @@ export function Tag({
       data-placement="top"
       title={tooltip_()}
       class={clsx(
-        'font-mono text-[0.625rem] icon-with-text copy-handle-container vlicTag inline-flex items-center gap-x-1',
+        'font-mono text-[0.625rem] icon-with-text copy-handle-container vlicTag inline-flex items-center gap-x-1 px-1',
         TagVariantStyles[variant],
         TagColorStyles[color][variant],
       )}
