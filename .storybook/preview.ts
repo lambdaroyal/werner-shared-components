@@ -1,4 +1,4 @@
-import '../src/input.css';
+import '../src/styles/index.css';
 
 const preview: Preview = {
   parameters: {

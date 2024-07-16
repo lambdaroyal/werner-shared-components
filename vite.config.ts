@@ -28,10 +28,12 @@ export default defineConfig({
     sassDts(),
     copy({
         targets: [
-            { src: 'src/**/*.scss', dest: 'dist' }
+            { src: 'src/**/*.scss', dest: 'dist' },
+            { src: 'src/**/*.css', dest: 'dist' }
         ],
         hook: 'writeBundle'
-    }),],
+    })
+    ],
 });
 
 
