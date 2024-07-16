@@ -4,6 +4,7 @@ import "./Camera.scss";
 import { I18nTag } from "./I18nTag";
 
 import { GuardedActivity } from "./GuardedActivity";
+import { SSRHelper } from "../lib/ssrHelper";
 
 export interface CameraProps {
   hideCamera: () => void;
@@ -45,8 +46,8 @@ export const Camera = (props: CameraProps) => {
     }
     const constraints = {
       video: { facingMode: frontOrBack() ? "user" : "environment" },
-      width: typeof window !== "undefined" ? { exact: window.innerWidth * 0.7 } : 100,
-      height: typeof window !== "undefined" ? { exact: window.innerHeight * 0.7 } : 100,
+      width: { exact: SSRHelper.getSingleton().window.innerWidth * 0.7 },
+      height: { exact: SSRHelper.getSingleton().window.innerHeight * 0.7 },
     };
 
     navigator.mediaDevices

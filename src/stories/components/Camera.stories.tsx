@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from 'storybook-solidjs';
 import { Camera, CameraProps } from '../../components/Camera';
+import { SSRHelper } from '../../lib/ssrHelper';
 
 
 
@@ -13,7 +14,7 @@ const meta: Meta<CameraProps> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-
+SSRHelper.init(window, navigator);
 
 export const Simple: Story = {
     args: {
