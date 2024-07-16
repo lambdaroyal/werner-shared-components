@@ -45,8 +45,8 @@ export const Camera = (props: CameraProps) => {
     }
     const constraints = {
       video: { facingMode: frontOrBack() ? "user" : "environment" },
-      width: { exact: window.innerWidth * 0.7 },
-      height: { exact: window.innerHeight * 0.7 },
+      width: typeof window !== "undefined" ? { exact: window.innerWidth * 0.7 } : 100,
+      height: typeof window !== "undefined" ? { exact: window.innerHeight * 0.7 } : 100,
     };
 
     navigator.mediaDevices

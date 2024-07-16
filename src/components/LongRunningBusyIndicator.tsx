@@ -19,17 +19,22 @@ export const longRunningBusyIndicator = function ({ timeOut = 500, message }: { 
         state,
         onStart: function () {
             setState({ running: true });
-            timeout = window.setTimeout(() => {
-                if (state.running) {
-                    setTimeout(() => setState({ busyIndicating: true }), 1000)
-                    setSpace("20px");
-                }
-            }, timeOut);
+            if (typeof window !== "undefined") {
+                timeout = window.setTimeout(() => {
+                    if (state.running) {
+                        setTimeout(() => setState({ busyIndicating: true }), 1000)
+                        setSpace("20px");
+                    }
+                }, timeOut);
+            } else {
+                setState({ busyIndicating: true });
+                setSpace("20px");
+            }
         },
         onStop: function () {
             setState({ running: false, busyIndicating: false });
             setSpace("0px")
-            clearTimeout(timeout);
+            if (timeout) clearTimeout(timeout);
         },
         Component: function ({ children }: { children?: JSXElement | JSXElement[] }) {
             return <div class="flex items-center">
