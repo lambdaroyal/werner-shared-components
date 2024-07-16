@@ -5,10 +5,10 @@
 import { Accessor, Setter, Signal, createMemo, createSignal } from "solid-js";
 import { executeAsync } from "./utils";
 
-type Lang = "de" | "en" | "ru" | "fr" | "pl" | "it";
+export type Lang = "de" | "en" | "ru" | "fr" | "pl" | "it";
 
 // Define a type for your CSV data if you know the structure
-type Translation = {
+export type Translation = {
     key: string
     domain?: string
     en?: string

@@ -1,7 +1,7 @@
 {
   "name": "werner-shared-components",
   "description": "shared components for werner-pwa and werner-server",
-  "version": "1.0.25",
+  "version": "1.0.27",
   "main": "dist/werner-shared-components.umd.js",
   "module": "dist/werner-shared-components.es.js",
   "types": "dist/index.d.ts",
@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "clsx": "^1.2.0",
-    "papaparse": "^5.4.1",
     "solid-js": "^1.8.18"
   },
   "devDependencies": {
@@ -27,7 +26,6 @@
     "@storybook/addon-links": "^8.1.11",
     "@storybook/blocks": "^8.1.11",
     "@storybook/testing-library": "^0.2.2",
-    "@types/papaparse": "^5.3.14",
     "autoprefixer": "^10.4.19",
     "copyfiles": "^2.4.1",
     "daisyui": "^4.12.10",
