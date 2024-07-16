@@ -9,6 +9,7 @@
 
 import { Accessor, JSXElement, Show, createSignal } from "solid-js";
 import { createStore } from "solid-js/store";
+import { SSRHelper } from "../lib/ssrHelper";
 
 // https://solid-icons.vercel.app/search/refresh
 export const longRunningBusyIndicator = function ({ timeOut = 500, message }: { timeOut: number, message?: Accessor<string | undefined> }) {
@@ -19,7 +20,7 @@ export const longRunningBusyIndicator = function ({ timeOut = 500, message }: { 
         state,
         onStart: function () {
             setState({ running: true });
-            timeout = window.setTimeout(() => {
+            timeout = SSRHelper.getSingleton().window?.setTimeout(() => {
                 if (state.running) {
                     setTimeout(() => setState({ busyIndicating: true }), 1000)
                     setSpace("20px");

@@ -4,6 +4,7 @@ import { remove } from "../../lib/utils";
 import { I18nTag } from "../I18nTag";
 import { BiRegularCheckCircle, BiRegularInfoCircle, RiSystemErrorWarningLine } from "../icons";
 import { OverLay } from "./Overlay";
+import { SSRHelper } from "../../lib/ssrHelper";
 
 export interface TailwindModalProps {
     title: string;
@@ -109,7 +110,7 @@ interface ModalDispatchProps extends Omit<TailwindModalProps, "submitButtonLabel
 
 export const modalDispatch = (modalProps: ModalDispatchProps) => {
     return new Promise((resolve, reject) => {
-        const div = document.createElement("div");
+        const div = SSRHelper.getSingleton()?.window?.document.createElement("div");
         div.classList.add("tailwind");
         document.getElementById("werner-layout")?.appendChild(div)
         const { submitButtonLabel, contribute, onCancel, ...customProps } = modalProps;

@@ -2,6 +2,7 @@ import { Show, JSX, splitProps, onMount, onCleanup } from "solid-js";
 import { disableScrolling, enableScrolling } from "./LockBodyScroll";
 import { render } from "solid-js/web";
 import { remove } from "./../../lib/utils";
+import { SSRHelper } from "../../lib/ssrHelper";
 
 interface OverLayProps extends JSX.InputHTMLAttributes<HTMLSpanElement> {
     visible: boolean;
@@ -29,9 +30,9 @@ export const OverLay = (props: OverLayProps) => {
  * calling overlayDispatch will return a function that - once called - disposes the overlay
  */
 export const overlayDispatch = (disableScrolling: boolean = false): () => void => {
-    const div = document.createElement("div");
+    const div = SSRHelper.getSingleton()?.window?.document.createElement("div");
     div.classList.add("tailwind");
-    document.body.appendChild(div);
+    SSRHelper.getSingleton()?.window?.document.body.appendChild(div);
     const dispose = render(() => <OverLay visible={true} disableScrolling={disableScrolling} />, div);
     return () => {
         dispose();
