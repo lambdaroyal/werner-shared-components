@@ -47,7 +47,7 @@ export class I18n {
     }
 
     getLanguage() {
-        this.lang();
+        return this.lang();
     }
 
     setLanguage(lang: Lang) {
