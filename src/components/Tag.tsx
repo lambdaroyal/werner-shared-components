@@ -45,9 +45,9 @@ export const TagColorStyles = {
       'ring-success text-success-content bg-success ring-success',
   },
   outline: {
-    small: 'ring-primary-content text-primary-content',
+    small: 'ring-base-content text-base-content',
     medium:
-      'ring-primary-content text-primary-content',
+      'ring-base-content text-base-content',
   },
   primary: {
     small: 'ring-primary-content bg-primary ring-primary text-primary-content',
