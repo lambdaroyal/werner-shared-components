@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from 'storybook-solidjs';
 import { Camera, CameraProps } from '../../components/Camera';
-import { SSRHelper } from '../../lib/ssrHelper';
 
-SSRHelper.init(window, navigator)
+
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/solid/writing-stories/introduction
 const meta: Meta<CameraProps> = {

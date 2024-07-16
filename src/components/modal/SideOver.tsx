@@ -3,7 +3,6 @@ import { I18nTag } from "../I18nTag";
 import clsx from 'clsx'
 import { AiOutlineCloseCircle } from "../icons";
 import { OverLay } from "./Overlay";
-import { SSRHelper } from "../../lib/ssrHelper";
 
 
 interface SideOverProps {
@@ -40,10 +39,10 @@ export const SideOver = (props: SideOverProps) => {
     }
   }
   onMount(() => {
-    SSRHelper.getSingleton()?.window?.document.body.addEventListener("keyup", handleEscape);
+    document.body.addEventListener("keyup", handleEscape);
   });
   onCleanup(() => {
-    SSRHelper.getSingleton()?.window?.document.body.removeEventListener("keyup", handleEscape);
+    document.body.removeEventListener("keyup", handleEscape);
   });
 
   const saveSession = () => {

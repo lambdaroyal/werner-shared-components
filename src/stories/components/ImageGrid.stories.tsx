@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from 'storybook-solidjs';
 import { Image, ImageGrid, ImageGridProps } from '../../components/ImageGrid';
-import { SSRHelper } from '../../lib/ssrHelper';
 
 
 
@@ -60,7 +59,7 @@ export const ManyImagesWithDownload: Story = {
                     </div>
                 </div>
             </dialog>
-            <ImageGrid downloadAllowed={true} onDelete={() => (SSRHelper.getSingleton()?.window?.document.getElementById('my_modal_1') as any)!.showModal()} images={[{
+            <ImageGrid downloadAllowed={true} onDelete={() => (document.getElementById('my_modal_1') as any)!.showModal()} images={[{
                 title: "", filename: ""
                 , source: "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
             }, {

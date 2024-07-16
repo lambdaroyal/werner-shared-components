@@ -2,7 +2,6 @@ import clsx from "clsx";
 import { createEffect, createSignal, onCleanup, onMount, Show } from "solid-js";
 import { I18nTag } from "./I18nTag";
 import { AiOutlineDelete, FiDownloadCloud } from "./icons";
-import { SSRHelper } from "../lib/ssrHelper";
 
 export interface Image {
   source: string;
@@ -22,13 +21,13 @@ export const ImageGrid = (props: ImageGridProps) => {
 
   const DownloadButton = (p: { image: Image }) => {
     const downloadImage = (url: string, name: string) => async () => {
-      const a = SSRHelper.getSingleton()?.window?.document.createElement("a");
+      const a = document.createElement("a");
       a.href = url;
       a.target = "_blank";
       a.download = name;
-      SSRHelper.getSingleton()?.window?.document.body.appendChild(a);
+      document.body.appendChild(a);
       a.click();
-      SSRHelper.getSingleton()?.window?.document.body.removeChild(a);
+      document.body.removeChild(a);
     };
     return <a onClick={downloadImage(p.image.source, p.image.filename)} class="btn btn-sm">
       <FiDownloadCloud />
