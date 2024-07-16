@@ -10,8 +10,8 @@ import { isNotEmpty } from '../lib/utils'
 import { CopyHandle } from './CopyHandle'
 
 export const TagVariantStyles = {
-  small: 'rounded-lg px-1.5 ring-1 ring-inset py-0.5',
-  medium: 'rounded-lg px-1.5 ring-1 ring-inset py-1 text-sm',
+  small: 'px-1.5 rounded-lg ring-1 ring-inset py-0.5',
+  medium: 'px-1.5 rounded-lg ring-1 ring-inset py-1 text-sm',
 }
 
 export const TagColorStyles = {
@@ -98,7 +98,7 @@ export function Tag({
       data-placement="top"
       title={tooltip_()}
       class={clsx(
-        'font-mono text-[0.625rem] icon-with-text copy-handle-container vlicTag inline-flex items-center gap-x-1 px-1',
+        'font-mono text-[0.625rem] icon-with-text copy-handle-container vlicTag inline-flex items-center gap-x-1',
         TagVariantStyles[variant],
         TagColorStyles[color][variant],
       )}
