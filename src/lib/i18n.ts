@@ -46,6 +46,15 @@ export class I18n {
 
     }
 
+    getLanguage() {
+        this.lang();
+    }
+
+    setLanguage(lang: Lang) {
+        this.setLang(lang);
+        localStorage.setItem("lang", lang);
+    }
+
     /**
      * returns the one and only
      */
