@@ -18,48 +18,18 @@ type Translation = {
     pl?: string
     ru?: string
 };
+export type Parser = (input: string) => Promise<{ [key: string]: string }>;
 
-async function parseTranslationCsv(lang: "de" | "en" | "ru" | "fr" | "pl" | "it" | undefined = "de") {
-    const Papa = await import('papaparse');
+async function parseTranslationCsv(lang: "de" | "en" | "ru" | "fr" | "pl" | "it" | undefined = "de", parser: Parser) {
 
-    return new Promise<{ [key: string]: string }>(function (resolve, _reject) {
-        fetch('/csv/i18n.csv')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.text(); // Read the CSV file as text
-            })
-            .then(csvFile => {
-                // Parse the CSV data
-                Papa.parse<Translation>(csvFile, {
-                    header: true,
-                    dynamicTyping: true,
-                    complete: (results) => {
-                        const lifted = results.data.reduce((acc, x) => {
-                            const value = x[lang || "de"];
-                            if (value) {
-                                if (x.domain) {
-                                    const key = `${x.domain}/${x.key}`;
-                                    acc[key] = value;
-                                } else {
-                                    acc[x.key] = value;
-                                }
-                            }
-                            return acc;
-                        }, {} as { [key: string]: string });
-                        console.log(`Parsed Results: count ${Object.keys(lifted).length}`);
-                        resolve(lifted);
-                    },
-                    error: (error: Error) => {
-                        console.error('Error parsing CSV:', error);
-                    }
-                });
-
-            })
-
-
-    })
+    return fetch('/csv/i18n.csv')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text(); // Read the CSV file as text
+        })
+        .then(csvFile => parser(csvFile))
 }
 
 
@@ -103,9 +73,9 @@ export class I18n {
 
 
 
-    init() {
+    init(parser: Parser) {
         executeAsync<Map<string, string>>(`[I18n] lang ${this.lang()}`, () => {
-            return parseTranslationCsv(this.lang())
+            return parseTranslationCsv(this.lang(), parser)
                 .then((xs: { [key: string]: string }) => {
                     const res = new Map<string, string>();
                     Object.keys(xs).map(key => {
