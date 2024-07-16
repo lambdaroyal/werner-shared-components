@@ -23,7 +23,11 @@ export default defineConfig({
             },
         },
     },
-    plugins: [dts(),
+    plugins: [dts({
+        exclude: ['stories/**',
+            'node_modules/papaparse/**' // Exclude papaparse from type generation if not needed
+        ]
+    }),
     solidPlugin(),
     sassDts(),
     copy({

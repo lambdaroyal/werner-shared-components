@@ -2,7 +2,6 @@
  * contains function to translate labels and to persist the language setting of the user
  */
 
-import Papa from 'papaparse';
 import { Accessor, Setter, Signal, createMemo, createSignal } from "solid-js";
 import { executeAsync } from "./utils";
 
@@ -20,7 +19,8 @@ type Translation = {
     ru?: string
 };
 
-function parseTranslationCsv(lang: "de" | "en" | "ru" | "fr" | "pl" | "it" | undefined = "de") {
+async function parseTranslationCsv(lang: "de" | "en" | "ru" | "fr" | "pl" | "it" | undefined = "de") {
+    const Papa = await import('papaparse');
 
     return new Promise<{ [key: string]: string }>(function (resolve, _reject) {
         fetch('/csv/i18n.csv')

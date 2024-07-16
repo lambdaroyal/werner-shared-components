@@ -46,8 +46,8 @@ export const Camera = (props: CameraProps) => {
     }
     const constraints = {
       video: { facingMode: frontOrBack() ? "user" : "environment" },
-      width: { exact: SSRHelper.getSingleton().window.innerWidth * 0.7 },
-      height: { exact: SSRHelper.getSingleton().window.innerHeight * 0.7 },
+      width: { exact: SSRHelper.getSingleton().window?.innerWidth * 0.7 },
+      height: { exact: SSRHelper.getSingleton().window?.innerHeight * 0.7 },
     };
 
     navigator.mediaDevices
