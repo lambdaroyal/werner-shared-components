@@ -1,4 +1,4 @@
-import '../public/style.css';
+import '../src/globals.css';
 
 const preview: Preview = {
   parameters: {

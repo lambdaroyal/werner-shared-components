@@ -17,8 +17,8 @@
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
-    "./style.css": {
-      "import": "./dist/style.css"
+    "./index.css": {
+      "import": "./dist/index.css"
     }
   },
   "scripts": {
