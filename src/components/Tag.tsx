@@ -50,15 +50,15 @@ export const TagColorStyles = {
       'ring-base-content text-base-content',
   },
   primary: {
-    small: 'ring-primary-content bg-primary ring-primary text-primary-content',
+    small: 'bg-primary ring-primary text-primary-content',
     medium:
-      'ring-primary-content bg-primary ring-primary text-primary-content',
+      'bg-primary ring-primary text-primary-content',
 
   },
   secondary: {
-    small: 'ring-secondary-content bg-secondary ring-secondary text-secondary-content',
+    small: 'ring-secondary bg-secondary text-secondary-content',
     medium:
-      'ring-secondary-content bg-secondary ring-secondary text-secondary-content',
+      'ring-secondary bg-secondary text-secondary-content',
 
   }
 

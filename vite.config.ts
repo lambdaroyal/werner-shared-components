@@ -23,20 +23,17 @@ export default defineConfig({
             },
         },
     },
-    plugins: [dts({
-        exclude: ['stories/**',
-            'node_modules/papaparse/**' // Exclude papaparse from type generation if not needed
-        ]
-    }),
-    solidPlugin(),
-    sassDts(),
-    copy({
-        targets: [
-            { src: 'src/**/*.scss', dest: 'dist' },
-            { src: 'src/**/*.css', dest: 'dist' }
-        ],
-        hook: 'writeBundle'
-    })
+    plugins: [
+        dts({ exclude: ['stories/**'] }),
+        solidPlugin(),
+        sassDts(),
+        copy({
+            targets: [
+                { src: 'src/**/*.scss', dest: 'dist' },
+                { src: 'src/**/*.css', dest: 'dist' }
+            ],
+            hook: 'writeBundle'
+        })
     ],
 });
 
