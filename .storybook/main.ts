@@ -8,9 +8,5 @@ const config: StorybookConfig = {
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
   ],
-  framework: {
-    name: "storybook-solidjs-vite",
-    options: {},
-  },
 };
 export default config;

@@ -1,6 +1,5 @@
 import { createEffect, createSignal, onMount } from "solid-js";
 
-import "./Camera.scss";
 import { I18nTag } from "./I18nTag";
 
 import { GuardedActivity } from "./GuardedActivity";

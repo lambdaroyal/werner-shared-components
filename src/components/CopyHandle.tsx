@@ -1,4 +1,3 @@
-import { Motion } from "@motionone/solid";
 import { OcCopy3 } from "./icons";
 import { I18n } from "../lib/i18n";
 import { Show, createSignal, splitProps } from "solid-js";
@@ -18,15 +17,9 @@ export function CopyHandle(props: { class?: string, copyFn: () => string }) {
         <div class="flex items-center">
             <OcCopy3 {...(splitProps(props, ["copyFn"])[0])} />
             <Show when={clicked[0]()}>
-                <Motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1, transition: { delay: 0.5 } }}
-                    exit={{ opacity: 1 }}>
-                    <div class="tooltip tooltip-open tooltip-right tooltip-info" data-tip={copied()}>
+                <div class="tooltip tooltip-open tooltip-right tooltip-info" data-tip={copied()}>
 
-                    </div>
-
-                </Motion.div>
+                </div>
             </Show>
         </div>
     </a>
