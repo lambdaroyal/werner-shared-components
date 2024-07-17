@@ -1,4 +1,4 @@
-import '../src/styles/index.scss';
+import '../public/style.css';
 
 const preview: Preview = {
   parameters: {
