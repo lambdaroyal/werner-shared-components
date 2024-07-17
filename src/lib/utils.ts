@@ -292,7 +292,7 @@ export function prefixed(prefix?: string): (x: string) => string {
 }
 
 
-export function classNames(...classes: (string | boolean | undefined)[]): string {
+export function classs(...classes: (string | boolean | undefined)[]): string {
     return classes.filter(Boolean).join(' ');
 }
 
