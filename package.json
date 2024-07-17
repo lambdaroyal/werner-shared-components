@@ -13,20 +13,9 @@
   "browser": {},
   "exports": {
     ".": {
-      "solid": {
-        "development": "./dist/dev.jsx",
-        "import": "./dist/index.jsx"
-      },
-      "development": {
-        "import": {
-          "types": "./dist/index.d.ts",
-          "default": "./dist/dev.js"
-        }
-      },
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      }
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
     "./style.css": {
       "import": "./dist/style.css"
