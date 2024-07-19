@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.1",
-    "solid-motionone": "^1.0.0",
+    "@release-it/keep-a-changelog": "^3.1.0",
     "@rollup/plugin-replace": "^5.0.7",
     "@solidjs/router": "^0.12.5",
     "@storybook/addon-essentials": "^8.1.11",
@@ -40,21 +40,21 @@
     "@storybook/blocks": "^8.1.11",
     "@storybook/testing-library": "^0.2.2",
     "autoprefixer": "^10.4.19",
-    "copyfiles": "^2.4.1",
     "daisyui": "^4.12.10",
     "postcss": "^8.4.39",
-    "sass": "^1.77.6",
+    "postcss-import": "^16.1.0",
+    "prettier": "^2.7.1",
+    "release-it": "^15.4.1",
+    "solid-js": "^1.8.18",
+    "solid-motionone": "^1.0.0",
     "storybook": "^8.2.0-beta.0",
     "storybook-solidjs": "^1.0.0-beta.2",
     "storybook-solidjs-vite": "^1.0.0-beta.2",
     "tailwindcss": "^3.4.5",
-    "typescript": "^5.5.3",
-    "@release-it/keep-a-changelog": "^3.1.0",
-    "prettier": "^2.7.1",
-    "release-it": "^15.4.1",
     "tsup": "^8.1.0",
-    "solid-js": "^1.8.18",
     "tsup-preset-solid": "^2.2.0",
-    "vite-plugin-solid": "^2.10.2"
+    "typescript": "^5.5.3",
+    "vite-plugin-solid": "^2.10.2",
+    "werner-shared-components": "^1.2.3"
   }
 }

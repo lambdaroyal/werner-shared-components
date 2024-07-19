@@ -11,7 +11,7 @@ import { CopyHandle } from './CopyHandle'
 
 export const TagVariantStyles = {
   small: 'rounded-lg ring-1 ring-inset py-0.5',
-  medium: 'rounded-lg ring-1 ring-inset py-1 text-sm',
+  medium: 'rounded-lg ring-1 ring-inset py-0.5 text-sm',
 }
 
 export const TagColorStyles = {
