@@ -2,9 +2,19 @@
   "name": "werner-shared-components",
   "description": "shared components for werner-pwa and werner-server",
   "version": "1.2.1",
-  "main": "dist/werner-shared-components.umd.js",
-  "module": "dist/werner-shared-components.es.js",
-  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "solid": "./dist/source/index.jsx",
+      "default": "./dist/esm/index.js"
+    }
+  },
   "scripts": {
     "build": "rollup -c",
     "prepublishOnly": "npm run build",
