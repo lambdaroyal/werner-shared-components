@@ -6,14 +6,15 @@
   "files": [
     "dist"
   ],
-  "main": "dist/esm/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "solid": "./dist/source/index.jsx",
-      "default": "./dist/esm/index.js"
-    }
+      "solid": "./dist/index.jsx",
+      "default": "./dist/index.js"
+    },
+    "./index.css": "./dist/index.css"
   },
   "scripts": {
     "build": "tsup",
