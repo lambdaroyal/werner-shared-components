@@ -1,6 +1,4 @@
-import '../src/styles/index.scss';
-
-export * from "./components/Camera"
+export * from "./components/Button"
 export * from "./components/icons"
 export * from "./components/ImageGrid"
 export * from "./components/Button"
