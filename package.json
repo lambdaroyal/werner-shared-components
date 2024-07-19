@@ -16,8 +16,9 @@
     }
   },
   "scripts": {
-    "build": "rollup -c",
-    "prepublishOnly": "npm run build",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "prepublishOnly": "pnpm run build",
     "release": "release-it",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -30,7 +31,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.1",
-    "@motionone/solid": "^10.16.4",
+    "solid-motionone": "^1.0.0",
     "@rollup/plugin-replace": "^5.0.7",
     "@solidjs/router": "^0.12.5",
     "@storybook/addon-essentials": "^8.1.11",
@@ -51,10 +52,9 @@
     "@release-it/keep-a-changelog": "^3.1.0",
     "prettier": "^2.7.1",
     "release-it": "^15.4.1",
-    "rollup": "^2.79.0",
-    "rollup-plugin-css-only": "^3.1.0",
-    "rollup-plugin-windicss": "^1.8.8",
-    "rollup-preset-solid": "^1.4.0",
+    "tsup": "^8.1.0",
+    "solid-js": "^1.8.18",
+    "tsup-preset-solid": "^2.2.0",
     "vite-plugin-solid": "^2.10.2"
   }
 }
