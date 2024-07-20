@@ -1,18 +1,14 @@
 import { defineConfig } from "tsup";
-import * as preset from "tsup-preset-solid";
 
-const preset_options: preset.PresetOptions = {
-  entries: {
-    entry: "./src/index.tsx",
-    dev_entry: true,
-  },
-  drop_console: true,
-};
-
-export default defineConfig((config) => {
-  config.publicDir = "public";
-  const watching = !!config.watch;
-  return preset.generateTsupOptions(
-    preset.parsePresetOptions(preset_options, watching),
-  );
+export default defineConfig({
+  // The file we created above that will be the entrypoint to the library.
+  entry: ["src/index.tsx"],
+  // Enable TypeScript type definitions to be generated in the output.
+  // This provides type-definitions to consumers.
+  dts: true,
+  // Clean the `dist` directory before building.
+  // This is useful to ensure the output is only the latest.
+  clean: true,
+  // Sourcemaps for easier debugging.
+  sourcemap: true,
 });
