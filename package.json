@@ -1,25 +1,40 @@
 {
-  "name": "werner-shared-components",
+  "name": "@repo/werner-shared-components",
   "description": "shared components for werner-pwa and werner-server",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "dist/index.cjs",
-  "module": "dist/index.cjs",
-  "types": "dist/index.d.cts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "browser": {},
   "exports": {
     ".": {
-      "solid": "./dist/index.jsx",
-      "default": "./dist/index.js"
+      "solid": {
+        "development": "./dist/dev.jsx",
+        "import": "./dist/index.jsx"
+      },
+      "development": {
+        "import": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/dev.js"
+        }
+      },
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
     },
-    "./index.css": "./dist/index.css"
+    "./index.css": {
+      "import": "./dist/index.css"
+    }
   },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "prepublishOnly": "pnpm run build",
+    "prepublishOnly": "npm run build",
     "release": "release-it",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
