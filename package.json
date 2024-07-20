@@ -1,5 +1,5 @@
 {
-  "name": "@repo/werner-shared-components",
+  "name": "werner-shared-components",
   "description": "shared components for werner-pwa and werner-server",
   "version": "1.2.8",
   "type": "module",
