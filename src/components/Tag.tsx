@@ -10,7 +10,7 @@ import { isNotEmpty } from '../lib/utils'
 import { CopyHandle } from './CopyHandle'
 
 export const TagVariantStyles = {
-  small: 'rounded-lg ring-1 ring-inset py-0.5',
+  small: 'rounded-lg ring-1 ring-inset py-0.25',
   medium: 'rounded-lg ring-1 ring-inset py-0.5 text-sm',
 }
 
