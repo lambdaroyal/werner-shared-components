@@ -1,0 +1,24 @@
+.swipe-button {
+    position: relative;
+    width: 90vw;
+    max-width: 400px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 30px;
+    margin: 0 auto;
+    /* Center the button */
+}
+
+.swipe-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--primary);
+    /* DaisyUI primary color */
+    border-radius: 30px;
+    /* Match the button's round corners */
+    /* No need for a fixed width anymore, as it's dynamic */
+}
