@@ -218,7 +218,7 @@ export class Notifications {
 
     render() {
         return <div aria-live="assertive" class="pointer-events-none fixed inset-0 flex items-end px-4 py-6 sm:items-start sm:p-6 z-60" style="z-index: 60">
-            <div class="flex w-full flex-col items-center space-y-4 sm:items-end">
+            <div class="flex w-full flex-col items-end space-y-4">
                 <For each={this.notifications()}>
                     {(item, i) => <Dynamic component={() => this.renderNotification(item)} />}
                 </For>

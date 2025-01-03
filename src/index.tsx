@@ -1,8 +1,9 @@
-import '../src/styles/index.scss';
+import "./styles/index.css"
 
-export * from "./components/Camera"
+export * from "./components/Button"
 export * from "./components/icons"
 export * from "./components/ImageGrid"
+export * from "./components/Camera"
 export * from "./components/Button"
 export * from "./components/CopyHandle"
 export * from "./components/GuardedActivity"

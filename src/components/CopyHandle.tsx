@@ -1,4 +1,4 @@
-import { Motion } from "@motionone/solid";
+import { Motion } from "solid-motionone";
 import { OcCopy3 } from "./icons";
 import { I18n } from "../lib/i18n";
 import { Show, createSignal, splitProps } from "solid-js";
