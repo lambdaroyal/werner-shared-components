@@ -54,7 +54,10 @@ export class Notifications {
     static handleException(err: Error): void {
         console.error(err);
         Notifications.getSingleon().addNotification({
-            caption: "error", description: err.message || (err as any)["statusText"],
+            caption: "error",
+            localizeCaption: true,
+            description: err.message || (err as any)["statusText"] || (err as any)["statusMessage"] || "unknown error",
+            localizeDescription: true,
 
             do: () => Promise.resolve(NotificationState.FAILED)
         })
