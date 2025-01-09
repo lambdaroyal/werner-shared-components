@@ -51,7 +51,7 @@ export class Notifications {
      * std error handler, use this in the catch clause of any get, post
      * @param err 
      */
-    static handleException(err: Error): void {
+    static handleException(err: Error, rethrow: boolean = true): void {
         console.error(err);
         Notifications.getSingleon().addNotification({
             caption: "error",
@@ -61,7 +61,9 @@ export class Notifications {
 
             do: () => Promise.resolve(NotificationState.FAILED)
         })
-        throw err;
+        if (rethrow) {
+            throw err;
+        }
     }
 
     static getSingleon(): Notifications {
