@@ -1,7 +1,7 @@
 {
   "name": "werner-shared-components",
   "description": "shared components for werner-pwa and werner-server",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "type": "module",
   "files": [
     "dist",
