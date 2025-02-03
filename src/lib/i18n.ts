@@ -58,6 +58,12 @@ export class I18n {
         localStorage.setItem("lang", lang);
     }
 
+    static init(lang: Lang, translations: TranslatedTerms) {
+        if (this.singleton) {
+            throw new Error("I18n already initialized");
+        }
+        this.singleton = new I18n(lang, translations);
+    }
 
     /**
      * returns the one and only
