@@ -101,7 +101,7 @@ export class I18n {
         const instance = I18n.get();
         const cache = instance.translations;
         const translatedTerm = (domain && cache[`${domain}/${key}`]) || cache[`${key}`];
-        return translatedTerm[this.getLanguage()] || key;
+        return translatedTerm?.[instance.lang] || key;
 
     }
 }
