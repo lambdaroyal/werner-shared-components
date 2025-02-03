@@ -189,6 +189,7 @@ export class Notifications {
                         </a>
                         <Show when={errorDetailsVisible()}>
                             <TailwindModal
+                                localizeTitle={true}
                                 title={errorTitle()}
                                 description={() => description!()}
                                 onCancel={() => setErrorDetailsVisible(false)}
