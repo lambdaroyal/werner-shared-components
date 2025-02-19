@@ -77,7 +77,7 @@ export type TagProps = {
   color?: keyof typeof TagColorStyles
   iconFn?: () => JSXElement
   copyFn?: () => string
-  tooltip?: string | (() => string)
+  tooltip?: string | (() => string | undefined)
   localizeTooltip?: boolean
 }
 
@@ -104,7 +104,7 @@ export function Tag({
       })();
       if (isNotEmpty(t)) {
         if (localizeTooltip) {
-          return I18n.localize(t)
+          return I18n.localize(t!)
         } else {
           return t
         }
