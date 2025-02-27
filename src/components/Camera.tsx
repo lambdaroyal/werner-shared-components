@@ -66,7 +66,7 @@ export const Camera = (props: CameraProps) => {
       </a>
       <video autoplay class="camera-centered" webkit-playsinline="true" playsinline ref={setVideoNode} />
       <canvas style="display: none" ref={setCanvas} />
-      <div class="flex justify-center fixed gap-2 px-8 pb-4 w-full bottom-0">
+      <div class="flex justify-center fixed gap-2 px-8 mt-2 sm:mt-4 pb-4 w-full bottom-0">
         <GuardedActivity worker={() => onClick()} class="btn btn-primary">
           <I18nTag>upload image</I18nTag>
         </GuardedActivity>
