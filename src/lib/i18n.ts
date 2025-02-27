@@ -32,27 +32,37 @@ async function parseTranslationCsv(lang: "de" | "en" | "ru" | "fr" | "pl" | "it"
         .then(csvFile => parser(csvFile))
 }
 
+export type TranslatedTerm = {
+    [key in Lang]: string;
+};
+export type TranslatedTerms = { [key: string]: TranslatedTerm }
 
 export class I18n {
     private static singleton: I18n
-    private lang: Accessor<Lang | undefined>
-    private setLang: Setter<Lang | undefined>
-    i18n: Signal<Map<string, string> | undefined>
+    private lang: Lang
+    private translations: TranslatedTerms
     // undefined ... not yet loaded
     // null ... not in translation set
-    private constructor() {
-        [this.lang, this.setLang] = createSignal();
-        this.i18n = createSignal();
-
+    private constructor(lang: Lang, translations: TranslatedTerms) {
+        this.lang = lang;
+        this.translations = translations;
     }
 
+
     getLanguage() {
-        return this.lang();
+        return this.lang;
     }
 
     setLanguage(lang: Lang) {
-        this.setLang(lang);
+        this.lang = lang;
         localStorage.setItem("lang", lang);
+    }
+
+    static init(lang: Lang, translations: TranslatedTerms) {
+        if (this.singleton) {
+            throw new Error("I18n already initialized");
+        }
+        this.singleton = new I18n(lang, translations);
     }
 
     /**
@@ -60,7 +70,7 @@ export class I18n {
      */
     static get(): I18n {
         if (!this.singleton) {
-            this.singleton = new I18n();
+            throw new Error("I18n not initialized");
         }
         return this.singleton;
     }
@@ -70,34 +80,15 @@ export class I18n {
     }
 
     static reactiveLocalize(key: string, domain?: string): Accessor<string> {
-        return createMemo(() => I18n.get().localize(key, domain))
+        const translation = I18n.get().localize(key, domain);
+        return () => translation;
     }
 
     readLangFromLocalStorage() {
         const current = localStorage.getItem("lang") as Lang || "de";
-        if (current != this.lang()) {
-            this.setLang(current)
+        if (current != this.getLanguage()) {
+            this.setLanguage(current)
         }
-    }
-
-
-
-    init(parser: Parser) {
-        executeAsync<Map<string, string>>(`[I18n] lang ${this.lang()}`, () => {
-            return parseTranslationCsv(this.lang(), parser)
-                .then((xs: { [key: string]: string }) => {
-                    const res = new Map<string, string>();
-                    Object.keys(xs).map(key => {
-                        res.set(key, xs[key]);
-                    });
-                    return res;
-                })
-                .then(xs => {
-                    this.i18n[1](xs);
-                })
-                .then(() => [this.i18n[0]()!, `${this.i18n[0]()?.size} translations`])
-        })
-
     }
 
     /**
@@ -108,10 +99,9 @@ export class I18n {
      */
     localize(key: string, domain?: string): string {
         const instance = I18n.get();
-        const cache = instance.i18n[0]();
-        const result = (domain && cache?.get(`${domain}/${key}`)) || cache?.get(`${key}`) || key
-        // console.log(`[i18n.localize] key ${key} domain ${domain} result ${result}`)
-        return result;
+        const cache = instance.translations;
+        const translatedTerm = (domain && cache[`${domain}/${key}`]) || cache[`${key}`];
+        return translatedTerm?.[instance.lang] || key;
 
     }
 }

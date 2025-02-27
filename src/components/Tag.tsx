@@ -4,7 +4,7 @@
  */
 
 import clsx from 'clsx'
-import { JSXElement, Show } from 'solid-js'
+import { createMemo, JSXElement, Show } from 'solid-js'
 import { I18n } from '../lib/i18n'
 import { isNotEmpty } from '../lib/utils'
 import { CopyHandle } from './CopyHandle'
@@ -77,7 +77,7 @@ export type TagProps = {
   color?: keyof typeof TagColorStyles
   iconFn?: () => JSXElement
   copyFn?: () => string
-  tooltip?: string,
+  tooltip?: string | (() => string | undefined)
   localizeTooltip?: boolean
 }
 
@@ -90,14 +90,38 @@ export function Tag({
   color = 'primary',
   iconFn = undefined
 }: TagProps) {
-  const tooltip_ = (isNotEmpty(tooltip) && localizeTooltip) ? I18n.reactiveLocalize(tooltip!) : () => tooltip;
+
+  const isFunction = (value: any): value is Function => typeof value === 'function';
+
+  const tooltipMemo = createMemo(() => {
+    if (tooltip) {
+      const t = (() => {
+        if (isFunction(tooltip)) {
+          return tooltip()
+        } else {
+          return tooltip
+        }
+      })();
+      if (isNotEmpty(t)) {
+        if (localizeTooltip) {
+          return I18n.localize(t!)
+        } else {
+          return t
+        }
+      }
+    }
+    return undefined
+
+  })
+
+
   return (
 
     <span
       style={{ "padding-left": "0.375rem", "padding-right": "0.375rem" }}
       data-toggle="tooltip"
       data-placement="top"
-      title={tooltip_()}
+      title={tooltipMemo()}
       class={clsx(
         'font-mono text-[0.625rem] icon-with-text copy-handle-container vlicTag inline-flex items-center gap-x-1',
         TagVariantStyles[variant],

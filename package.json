@@ -1,7 +1,7 @@
 {
   "name": "werner-shared-components",
   "description": "shared components for werner-pwa and werner-server",
-  "version": "1.4.7",
+  "version": "2.1.1",
   "type": "module",
   "files": [
     "dist",
@@ -70,6 +70,6 @@
     "tsup-preset-solid": "^2.2.0",
     "typescript": "^5.5.3",
     "vite-plugin-solid": "^2.10.2",
-    "werner-shared-components": "^1.2.3"
+    "werner-shared-components": "^2.0.1"
   }
 }
