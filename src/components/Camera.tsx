@@ -44,10 +44,14 @@ export const Camera = (props: CameraProps) => {
       props.onError(msg);
     }
     const constraints = {
-      video: { facingMode: frontOrBack() ? "user" : "environment" },
-      width: { exact: window.innerWidth * 0.7 },
-      height: { exact: window.innerHeight * 0.7 },
-    };
+      video: {
+        facingMode: frontOrBack() ? "user" : "environment",
+        width: { exact: window.innerWidth * 0.7 },
+        height: { exact: window.innerHeight * 0.7 },
+        focusMode: 'continuous',
+
+      }
+    } as MediaStreamConstraints;
 
     navigator.mediaDevices
       .getUserMedia(constraints)
