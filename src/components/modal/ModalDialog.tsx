@@ -44,25 +44,25 @@ export const TailwindModal = (props: TailwindModalProps) => {
                             <Switch>
                                 <Match when={props.severity === "info"}>
                                     <div
-                                        class="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-info text-info-content sm:mx-0 sm:h-10 sm:w-10">
+                                        class="shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-info text-info-content sm:mx-0 sm:h-10 sm:w-10">
                                         <BiRegularInfoCircle />
                                     </div>
                                 </Match>
                                 <Match when={props.severity === "success"}>
                                     <div
-                                        class="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-success bg-success-content text-success-content sm:mx-0 sm:h-10 sm:w-10">
+                                        class="shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-success bg-success-content text-success-content sm:mx-0 sm:h-10 sm:w-10">
                                         <BiRegularCheckCircle />
                                     </div>
                                 </Match>
                                 <Match when={props.severity === "warning"}>
                                     <div
-                                        class="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-warning text-warning-content sm:mx-0 sm:h-10 sm:w-10">
+                                        class="shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-warning text-warning-content sm:mx-0 sm:h-10 sm:w-10">
                                         <RiSystemErrorWarningLine />
                                     </div>
                                 </Match>
                                 <Match when={props.severity === "error"}>
                                     <div
-                                        class="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-error text-error-content sm:mx-0 sm:h-10 sm:w-10">
+                                        class="shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-error text-error-content sm:mx-0 sm:h-10 sm:w-10">
                                         <RiSystemErrorWarningLine />
                                     </div>
                                 </Match>
