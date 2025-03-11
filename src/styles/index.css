@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import 'daisyui';
 
 @theme {
   --text-*: initial;
@@ -48,6 +49,7 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+
   *,
   ::after,
   ::before,
