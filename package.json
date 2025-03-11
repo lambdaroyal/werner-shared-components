@@ -57,7 +57,7 @@
     "@storybook/blocks": "^8.1.11",
     "@storybook/testing-library": "^0.2.2",
     "autoprefixer": "^10.4.19",
-    "daisyui": "^4.12.10",
+    "daisyui": "^5.0.0",
     "prettier": "^2.7.1",
     "release-it": "^15.4.1",
     "solid-js": "^1.8.18",
