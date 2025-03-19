@@ -152,8 +152,8 @@ export class Notifications {
 
         const description = notification.error ? I18n.reactiveLocalize(notification.error.message) : undefined;
         return <div ref={setEl}
-            class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-            <div class="ml-3 w-100 p-4 pt-0.5">
+            class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-neutral-300 ring-opacity-5">
+            <div class="ml-3 w-full p-4 pt-0.5">
                 <div class="flex items-center gap-x-2">
                     <div class="shrink-0">
                         <Switch>
