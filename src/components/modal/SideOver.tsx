@@ -57,25 +57,11 @@ export const SideOver = (props: SideOverProps) => {
   const SizeChangeButtonGroup = () => (
     <div class="flex items-center	gap-2 invisible lg:visible">
       <span class="text-nowrap"><I18nTag key={size() == "small" ? "Small view" : "Large view"} /></span>
-      <button
-        type="button"
-        onclick={(_) => changeWidth(size() === "small" ? "large" : "small")}
-        classList={{
-          "bg-indigo-600": size() === "large",
-          "bg-gray-200": size() !== "large"
-        }}
-        class="std-ring relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-hidden focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
-        role="switch"
+      <input type="checkbox" class={clsx("toggle toggle-sm", size() == "big" ? "toggle-success" : undefined)}
+        checked={size() == "big"}
+        onclick={() => changeWidth(size() == "small" ? "large" : "small")}
         aria-checked="false"
-      >
-        <span
-          aria-hidden="true"
-          classList={{
-            "translate-x-5": size() === "large",
-            "translate-x-0": size() !== "large"
-          }}
-          class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white dark:bg-black shadow-sm ring-0 transition duration-200 ease-in-out" />
-      </button>
+      />
     </div>
   );
 
