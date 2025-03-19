@@ -3,6 +3,7 @@ import { I18nTag } from "../I18nTag";
 import clsx from 'clsx'
 import { AiOutlineCloseCircle } from "../icons";
 import { OverLay } from "./Overlay";
+import { I18n } from "../..";
 
 
 interface SideOverProps {
@@ -31,7 +32,7 @@ export const SideOver = (props: SideOverProps) => {
   const configJson = getConfigJson();
 
 
-  const [size, setSize] = createSignal(configJson.size || "big");
+  const [size, setSize] = createSignal<"big" | "small">(configJson.size || "big");
 
   const handleEscape = (e: KeyboardEvent) => {
     if (e.code === "Escape") {
@@ -49,28 +50,24 @@ export const SideOver = (props: SideOverProps) => {
     localStorage.setItem(sessionVarKey, JSON.stringify({ ...configJson, size: size(), }));
   }
 
-  const changeWidth = (size: string) => {
+  const changeWidth = (size: "big" | "small") => {
     setSize(size);
     saveSession();
   };
 
   const SizeChangeButtonGroup = () => (
     <div class="flex items-center	gap-2 invisible lg:visible">
-      <span class="text-nowrap"><I18nTag key={size() == "small" ? "Small view" : "Large view"} /></span>
+      <span class="text-nowrap">{size() == "big" ? I18n.localize("Large view") : I18n.localize("Small view")}</span>
       <input type="checkbox" class={clsx("toggle toggle-sm", size() == "big" ? "toggle-success" : undefined)}
         checked={size() == "big"}
-        onclick={() => changeWidth(size() == "small" ? "large" : "small")}
+        onclick={() => changeWidth(size() == "small" ? "big" : "small")}
         aria-checked="false"
       />
     </div>
   );
 
   const sideOverwidth = () => {
-    if (size() === "small") {
-      return props.big ? "lg:max-w-7xl" : "lg:max-w-md"
-    } else {
-      return props.big ? "lg:max-w-full" : "lg:max-w-5xl"
-    }
+    return clsx("w-full lg", size() == "big" ? "lg:max-w-7xl 2xl:max-w-[60rem]" : "lg:max-w-2xl")
   }
 
   const renderSizeChangeButton = () => {
@@ -110,9 +107,9 @@ export const SideOver = (props: SideOverProps) => {
                           type="button"
                           class="flex items-center rounded-md text-gray-400 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
                           onclick={() => props.setIsVisible(false)}>
-                          <span class="sr-only"><I18nTag key="Close panel" /></span>
-                          <AiOutlineCloseCircle aria-hidden="true" />
+                          <kbd class="kbd invisible lg:visible">ESC</kbd>
                         </button>
+                        <AiOutlineCloseCircle aria-hidden="true" />
                       </div>
                     </div>
                   </div>

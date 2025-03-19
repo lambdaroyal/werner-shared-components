@@ -76,6 +76,9 @@ export class I18n {
     }
 
     static localize(key: string, domain?: string): string {
+        if (!this.singleton) {
+            return key;
+        }
         return I18n.get().localize(key, domain);
     }
 
