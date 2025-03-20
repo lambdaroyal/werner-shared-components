@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { JSXElement, Show } from "solid-js";
-import { I18nTag } from "werner-shared-components";
+import { I18nTag } from "./I18nTag";
 
 export interface QuickLinkProps {
     icon?: JSXElement;

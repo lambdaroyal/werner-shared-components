@@ -1,5 +1,5 @@
 import { Component, createMemo, Show } from "solid-js";
-import { I18nTag } from "werner-shared-components";
+import { I18nTag } from "./I18nTag";
 
 interface TimeAgoProps {
     timestamp: string; // ISO timestamp

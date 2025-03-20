@@ -1,8 +1,8 @@
 import { Accessor, For, JSX, Show } from "solid-js"
-import { I18nTag } from "werner-shared-components"
 import { VerticalEllipsisPopover } from "./VerticalEllipsisPopover"
 import { TimeAgo } from "./TimeAgo"
 import { DropDownButtonMinimal, DropDownButtonMinimalItem } from "./MinimalDropDownButton"
+import { I18nTag } from "./I18nTag"
 
 
 export type TFeedAction<TItem> = {

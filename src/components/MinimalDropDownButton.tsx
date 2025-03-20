@@ -1,7 +1,8 @@
 
 import clsx from "clsx";
 import { Accessor, createSignal, JSX, JSXElement, Show } from "solid-js";
-import { classNames, I18nTag } from "werner-shared-components";
+import { I18nTag } from "./I18nTag";
+import { classNames } from "../lib/utils";
 
 export const VerticalEllipsisPopover = (props: { class?: string }): JSX.Element => {
     return <div class={clsx("-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900", props.class)} id="options-menu-0-button" aria-expanded="false" aria-haspopup="true">
