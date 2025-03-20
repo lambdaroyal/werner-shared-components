@@ -83,7 +83,7 @@ export const SideOver = (props: SideOverProps) => {
 
         <div class="fixed inset-0 overflow-hidden">
           <div class="absolute inset-0 overflow-hidden disabled-overlay">
-            <div class={`pointer-events-none fixed inset-y-0 right-0 flex max-w-full`}>
+            <div class={`pointer-events-none fixed inset-y-0 right-0 flex`}>
               {/*
                 Slide-over panel, show/hide based on slide-over state.
 
@@ -94,7 +94,7 @@ export const SideOver = (props: SideOverProps) => {
                   From: "translate-x-0"
                   To: "translate-x-full"
              */}
-              <div class={clsx(sideOverwidth(), "pointer-events-auto w-screen max-w-full")}>
+              <div class={clsx(sideOverwidth(), "pointer-events-auto w-screen")}>
                 <div class="flex flex-col overflow-y-auto non-boundary py-6 shadow-xl" style={{ height: "100vh" }}>
                   <div class="px-4">
                     <div class="flex items-start justify-between">
@@ -103,13 +103,10 @@ export const SideOver = (props: SideOverProps) => {
                       </h2>
                       <div class="ml-3 flex h-7 items-center gap-x-2">
                         {renderSizeChangeButton()}
-                        <button
-                          type="button"
-                          class="flex items-center rounded-md text-gray-400 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
-                          onclick={() => props.setIsVisible(false)}>
+                        <div role="button" class="flex items-center gap-x-2 cursor-pointer" onclick={() => props.setIsVisible(false)}>
                           <kbd class="kbd invisible lg:visible">ESC</kbd>
-                        </button>
-                        <AiOutlineCloseCircle aria-hidden="true" />
+                          <AiOutlineCloseCircle aria-hidden="true" />
+                        </div>
                       </div>
                     </div>
                   </div>
