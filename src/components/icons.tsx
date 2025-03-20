@@ -213,3 +213,126 @@ export function AiOutlineColumnWidth(props: { [key: string]: any } = {}) {
         <svg {...props} fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path d="M180 176h-60c-4.4 0-8 3.6-8 8v656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V184c0-4.4-3.6-8-8-8zm724 0h-60c-4.4 0-8 3.6-8 8v656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V184c0-4.4-3.6-8-8-8zM785.3 504.3 657.7 403.6a7.23 7.23 0 0 0-11.7 5.7V476H378v-62.8c0-6-7-9.4-11.7-5.7L238.7 508.3a7.14 7.14 0 0 0 0 11.3l127.5 100.8c4.7 3.7 11.7.4 11.7-5.7V548h268v62.8c0 6 7 9.4 11.7 5.7l127.5-100.8c3.8-2.9 3.8-8.5.2-11.4z"></path></svg>
     );
 }
+
+export function WiCloudRefresh(props: { [key: string]: any } = {}) {
+    return (
+        <svg {...props} fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" id="Layer_1" x="0" y="0" enable-background="new 0 0 30 30" version="1.1" viewBox="0 0 30 30" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path d="M4.63 16.91c0 .66.12 1.28.38 1.88.25.6.59 1.11 1.02 1.55.43.43.94.79 1.53 1.05.59.27 1.21.42 1.87.45.11 0 .17-.06.17-.17v-1.33c0-.12-.06-.19-.17-.19-.87-.06-1.6-.41-2.19-1.03s-.89-1.36-.89-2.21c0-.84.28-1.57.85-2.19.57-.62 1.26-.97 2.1-1.04l.52-.07c.13 0 .2-.06.2-.17l.07-.52A4.173 4.173 0 0 1 12.3 9.6c.62-.33 1.29-.49 2.01-.49 1.09 0 2.05.36 2.86 1.08a4.01 4.01 0 0 1 1.39 2.7l.06.57c0 .12.06.18.19.18h1.61c.9 0 1.67.32 2.32.97.64.64.97 1.41.97 2.3 0 .85-.3 1.59-.89 2.21-.59.62-1.32.97-2.19 1.03-.13 0-.2.06-.2.19v1.33c0 .11.07.17.2.17 1.34-.06 2.47-.57 3.39-1.51s1.38-2.09 1.38-3.42c0-.89-.22-1.72-.67-2.48a4.96 4.96 0 0 0-1.81-1.8c-.76-.44-1.59-.67-2.48-.67h-.32c-.33-1.33-1.04-2.42-2.11-3.28-1.11-.86-2.34-1.28-3.71-1.28-1.41 0-2.66.44-3.75 1.33s-1.8 2.01-2.11 3.38a4.77 4.77 0 0 0-2.73 1.74c-.72.89-1.08 1.91-1.08 3.06zm6.23 1.27c0 .74.19 1.43.56 2.07s.88 1.14 1.51 1.51c.63.38 1.32.56 2.06.56 1.15 0 2.13-.41 2.95-1.22.82-.82 1.23-1.79 1.23-2.92 0-.23-.08-.43-.25-.6a.822.822 0 0 0-.61-.25c-.24 0-.44.08-.61.25s-.26.37-.26.6c0 .67-.24 1.24-.72 1.73-.48.48-1.05.72-1.73.72-.66 0-1.23-.24-1.71-.72s-.72-1.06-.72-1.73c0-.6.18-1.13.53-1.6.36-.47.79-.73 1.31-.77l-.41.39c-.15.15-.23.34-.23.57 0 .25.07.47.23.66.14.15.31.23.53.23.22.01.45-.07.7-.23l1.82-1.87c.17-.17.25-.36.25-.58 0-.25-.08-.45-.25-.61l-1.82-1.83a.863.863 0 0 0-.62-.26c-.23 0-.43.08-.59.25-.16.17-.24.37-.24.61s.07.43.23.58l.35.36c-1 .17-1.83.63-2.49 1.4-.67.76-1 1.66-1 2.7z"></path></svg>
+    );
+}
+
+export function AiOutlineLink(props: { [key: string]: any } = {}) {
+    return (
+        <svg {...props} fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path d="M574 665.4a8.03 8.03 0 0 0-11.3 0L446.5 781.6c-53.8 53.8-144.6 59.5-204 0-59.5-59.5-53.8-150.2 0-204l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3l-39.8-39.8a8.03 8.03 0 0 0-11.3 0L191.4 526.5c-84.6 84.6-84.6 221.5 0 306s221.5 84.6 306 0l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3L574 665.4zm258.6-474c-84.6-84.6-221.5-84.6-306 0L410.3 307.6a8.03 8.03 0 0 0 0 11.3l39.7 39.7c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c53.8-53.8 144.6-59.5 204 0 59.5 59.5 53.8 150.2 0 204L665.3 562.6a8.03 8.03 0 0 0 0 11.3l39.8 39.8c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c84.5-84.6 84.5-221.5 0-306.1zM610.1 372.3a8.03 8.03 0 0 0-11.3 0L372.3 598.7a8.03 8.03 0 0 0 0 11.3l39.6 39.6c3.1 3.1 8.2 3.1 11.3 0l226.4-226.4c3.1-3.1 3.1-8.2 0-11.3l-39.5-39.6z"></path></svg>
+    );
+}
+
+export function FiChevronDown(props: { [key: string]: any } = {}) {
+    return (
+        <svg {...props} fill="none" stroke-width="2" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path d="M6 9 12 15 18 9"></path></svg>
+    );
+}
+
+export function RiArrowsExpandUpDownLine(props: { [key: string]: any } = {}) {
+    return (
+        <svg {...props} fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path fill="currentColor" d="M18.207 9.043 12 2.836 5.793 9.043l1.414 1.414L12 5.664l4.793 4.793 1.414-1.414ZM5.793 14.957 12 21.165l6.207-6.208-1.414-1.414L12 18.336l-4.793-4.793-1.414 1.414Z"></path></svg>
+    );
+}
+
+export function AiOutlineUnorderedList(props: { [key: string]: any } = {}) {
+    return (
+        <svg {...props} fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path d="M912 192H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM104 228a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm0 284a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm0 284a56 56 0 1 0 112 0 56 56 0 1 0-112 0z"></path></svg>
+    );
+}
+
+export function HiOutlinePrinter(props: { [key: string]: any } = {}) {
+    return (
+        <svg {...props} fill="none" stroke-width="0" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" viewBox="0 0 24 24" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-1.913-.247M6.34 18H5.25A2.25 2.25 0 0 1 3 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 0 1 1.913-.247m10.5 0a48.536 48.536 0 0 0-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5Zm-3 0h.008v.008H15V10.5Z"></path></svg>
+    );
+}
+
+export function VsListUnordered(props: { [key: string]: any } = {}) {
+    return (
+        <svg {...props} fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path fill-rule="evenodd" d="M2 3H1v1h1V3zm0 3H1v1h1V6zM1 9h1v1H1V9zm1 3H1v1h1v-1zm2-9h11v1H4V3zm11 3H4v1h11V6zM4 9h11v1H4V9zm11 3H4v1h11v-1z" clip-rule="evenodd"></path></svg>
+    );
+}
+
+export function IoDocumentTextOutline(props: { [key: string]: any } = {}) {
+    return (
+        <svg  {...props} fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" d="M416 221.25V416a48 48 0 0 1-48 48H144a48 48 0 0 1-48-48V96a48 48 0 0 1 48-48h98.75a32 32 0 0 1 22.62 9.37l141.26 141.26a32 32 0 0 1 9.37 22.62Z"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M256 56v120a32 32 0 0 0 32 32h120"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M176 288 336 288"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M176 368 336 368"></path></svg>
+    );
+}
+
+
+export function AiOutlineUpload(props: { [key: string]: any } = {}) {
+    return (
+        <svg {...props} fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 0 0-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"></path></svg>
+    );
+}
+
+export function AiOutlineDownload(props: { [key: string]: any } = {}) {
+    return (
+        <svg {...props} fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"></path></svg>
+    );
+}
+
+export function FiBarChart(props: { [key: string]: any } = {}) {
+    return (
+        <svg {...props} fill="none" stroke-width="2" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path d="M12 20 12 10"></path><path d="M18 20 18 4"></path><path d="M6 20 6 16"></path></svg>
+    );
+}
+
+export function VsTasklist(props: { [key: string]: any } = {}) {
+    return (
+        <svg {...props} fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path fill-rule="evenodd" d="m3.57 6.699 5.693-4.936L8.585 1 3.273 5.596l-1.51-1.832L1 4.442l1.85 2.214.72.043zM15 5H6.824l2.307-2H15v2zM6 7h9v2H6V7zm9 4H6v2h9v-2z" clip-rule="evenodd"></path></svg>
+    );
+}
+
+export function FaSolidTruckDroplet(props: { [key: string]: any } = {}) {
+    return (
+        <svg  {...props} fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path d="M0 48C0 21.5 21.5 0 48 0h320c26.5 0 48 21.5 48 48v48h50.7c17 0 33.3 6.7 45.3 18.7l77.3 77.3c12 12 18.7 28.3 18.7 45.3V352c17.7 0 32 14.3 32 32s-14.3 32-32 32h-32c0 53-43 96-96 96s-96-43-96-96H256c0 53-43 96-96 96s-96-43-96-96H48c-26.5 0-48-21.5-48-48V48zm416 208h128v-18.7L466.7 160H416v96zM160 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm368-48a48 48 0 1 0-96 0 48 48 0 1 0 96 0zM208 272c39.8 0 72-29.6 72-66 0-27-39.4-82.9-59.9-110.3-6.1-8.2-18.1-8.2-24.2 0C175.4 123 136 179 136 206c0 36.5 32.2 66 72 66z"></path></svg>
+    );
+}
+
+export function BiRegularTask(props: { [key: string]: any } = {}) {
+    return (
+        <svg {...props} fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path d="M5 22h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2h-2a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1H5c-1.103 0-2 .897-2 2v15c0 1.103.897 2 2 2zM5 5h2v2h10V5h2v15H5V5z"></path><path d="m11 13.586-1.793-1.793-1.414 1.414L11 16.414l5.207-5.207-1.414-1.414z"></path></svg>
+    );
+}
+
+export function AiOutlinePrinter(props: { [key: string]: any } = {}) {
+    return (
+        <svg  {...props} fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path d="M820 436h-40c-4.4 0-8 3.6-8 8v40c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-40c0-4.4-3.6-8-8-8zm32-104H732V120c0-4.4-3.6-8-8-8H300c-4.4 0-8 3.6-8 8v212H172c-44.2 0-80 35.8-80 80v328c0 17.7 14.3 32 32 32h168v132c0 4.4 3.6 8 8 8h424c4.4 0 8-3.6 8-8V772h168c17.7 0 32-14.3 32-32V412c0-44.2-35.8-80-80-80zM360 180h304v152H360V180zm304 664H360V568h304v276zm200-140H732V500H292v204H160V412c0-6.6 5.4-12 12-12h680c6.6 0 12 5.4 12 12v292z"></path></svg>
+    );
+}
+
+export function RiMapRouteFill(props: { [key: string]: any } = {}) {
+    return (
+        <svg {...props} fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path fill="currentColor" d="M4 15V8.5a4.5 4.5 0 0 1 9 0v7a2.5 2.5 0 0 0 5 0V8.83a3.001 3.001 0 1 1 2 0v6.67a4.5 4.5 0 1 1-9 0v-7a2.5 2.5 0 0 0-5 0V15h3l-4 5-4-5h3Z"></path></svg>
+    );
+}
+
+export function FaRegularAddressBook(props: { [key: string]: any } = {}) {
+    return (
+        <svg  {...props} fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path d="M384 48c8.8 0 16 7.2 16 16v384c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h288zM96 0C60.7 0 32 28.7 32 64v384c0 35.3 28.7 64 64 64h288c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H96zm144 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm-32 32c-44.2 0-80 35.8-80 80 0 8.8 7.2 16 16 16h192c8.8 0 16-7.2 16-16 0-44.2-35.8-80-80-80h-64zM512 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V80zm-16 112c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16v-64c0-8.8-7.2-16-16-16zm16 144c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16v-64z"></path></svg>
+    );
+}
+
+
+export function TbTargetArrow(props: { [key: string]: any } = {}) {
+    return (
+        <svg {...props} fill="none" stroke-width="2" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-target-arrow" width="1em" height="1em" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="overflow: visible; color: currentcolor;"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path><path d="M12 7a5 5 0 1 0 5 5"></path><path d="M13 3.055a9 9 0 1 0 7.941 7.945"></path><path d="M15 6v3h3l3 -3h-3v-3z"></path><path d="M15 9l-3 3"></path></svg>
+    );
+}
+
+export function FiSearch(props: { [key: string]: any } = {}) {
+    return (
+        <svg {...props} fill="none" stroke-width="2" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path d="M11 3A8 8 0 1 0 11 19 8 8 0 1 0 11 3z"></path><path d="M21 21 16.65 16.65"></path></svg>
+    );
+}
+
+
+export function FiClipboard(props: { [key: string]: any } = {}) {
+    return (
+        <svg {...props} fill="none" stroke-width="2" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" height="1em" width="1em" style="overflow: visible; color: currentcolor;"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect></svg>
+    );
+}

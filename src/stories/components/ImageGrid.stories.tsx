@@ -46,7 +46,7 @@ export const ManyImagesWithDownload: Story = {
             , source: "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
         }]
     },
-    render: (args) => {
+    render: (args: ImageGridProps) => {
         return <div>
             <dialog id="my_modal_1" class="modal">
                 <div class="modal-box">
