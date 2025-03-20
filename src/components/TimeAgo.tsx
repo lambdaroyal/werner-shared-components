@@ -2,13 +2,14 @@ import { Component, createMemo, Show } from "solid-js";
 import { I18nTag } from "./I18nTag";
 
 interface TimeAgoProps {
-    timestamp: string; // ISO timestamp
+    timestamp?: string; // ISO timestamp
+    date?: Date;
 }
 
 export const TimeAgo: Component<TimeAgoProps> = (props) => {
     const getTimeAgo = createMemo(() => {
         const now = new Date();
-        const then = new Date(props.timestamp);
+        const then = props.date ? props.date : props.timestamp ? new Date(props.timestamp) : new Date();
         const diffMs = now.getTime() - then.getTime();
         const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
         const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
