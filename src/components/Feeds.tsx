@@ -16,7 +16,7 @@ export type TFeedAction<TItem> = {
 export function Feeds<TItem>(props: {
     items: Accessor<TItem[] | undefined>,
     renderItem: (item: TItem) => JSX.Element,
-    timeAgo?: (item: TItem) => string,
+    timeAgo?: (item: TItem) => Date,
     actions?: (item: TItem) => TFeedAction<TItem>[]
 }) {
 
@@ -36,7 +36,11 @@ export function Feeds<TItem>(props: {
 
             </div>
             <Show when={props.timeAgo}>
-                <time class="flex-none py-0.5 text-xs/5 text-gray-500"><TimeAgo timestamp={props.timeAgo!(item)} /></time>
+                <time class="flex-none py-0.5 text-xs/5 text-gray-500">
+                    <Show when={typeof props.timeAgo!(item) === "object"}>
+                        <TimeAgo date={props.timeAgo!(item)} />
+                    </Show>
+                </time>
             </Show>
             <DropDownButtonMinimal popover={(isOpen, setState) => {
                 return <button class="cursor-pointer focus:outline-none" role="button" onClick={() => setState(!isOpen())}>

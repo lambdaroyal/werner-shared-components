@@ -10,7 +10,7 @@ import { DescriptionListProps } from '../../components/DescriptionList';
 interface TCompletedTask {
     _type: 'drainage' | 'sewage_disposal' | string;
     id: string;
-    created_at: string;
+    created_at: Date;
     [key: string]: any;
 }
 
@@ -29,7 +29,7 @@ const TxDrainageView = (props: { item: TCompletedTask }) => (
     <div>
         <h3>Drainage Task</h3>
         <p>ID: {props.item.id}</p>
-        <p>Created: {props.item.created_at}</p>
+        <p>Created: {props.item.created_at.toISOString()}</p>
         <div class="rounded-md bg-white px-3 pt-2.5 pb-1.5 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
             <label for="name" class="block text-xs font-medium text-gray-900">Name</label>
             <input type="text" name="name" id="name" class="block w-full text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" placeholder="Jane Smith" />
@@ -67,14 +67,14 @@ const mockCompletedTasks: TCompletedTask[] = [
     {
         _type: 'drainage',
         id: '12345',
-        created_at: new Date(Date.now() - 3600000).toISOString(), // 1 hour ago
+        created_at: new Date(Date.now() - 3600000),
         location: 'North Basin',
         amount: 250
     },
     {
         _type: 'sewage_disposal',
         id: '67890',
-        created_at: new Date(Date.now() - 7200000).toISOString(), // 2 hours ago
+        created_at: new Date(Date.now() - 7200000),
         location: 'South Port',
         volume: 500
     }
@@ -174,7 +174,7 @@ export const Default: Story = {
 const sampleData = [
     {
         _type: "drainage",
-        created_at: new Date().toISOString(),
+        created_at: new Date(),
         details: {
             key: 'Drainage Task',
             value: 'Details about the drainage task'
@@ -182,7 +182,7 @@ const sampleData = [
     },
     {
         _type: "sewage_disposal",
-        created_at: new Date().toISOString(),
+        created_at: new Date(),
         details: {
             key: 'Sewage Disposal Task',
             value: 'Details about the sewage disposal task'
