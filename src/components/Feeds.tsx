@@ -30,10 +30,8 @@ export function Feeds<TItem>(props: {
             <div class="relative flex size-6 flex-none items-center justify-center bg-white">
                 <div class="size-1.5 rounded-full bg-gray-100 ring-1 ring-gray-300"></div>
             </div>
-            {props.renderItem(item)}
-            {/* right side of the item */}
             <div class="flex-1">
-
+                {props.renderItem(item)}
             </div>
             <Show when={props.timeAgo}>
                 <time class="flex-none py-0.5 text-xs/5 text-gray-500">
@@ -42,19 +40,21 @@ export function Feeds<TItem>(props: {
                     </Show>
                 </time>
             </Show>
-            <DropDownButtonMinimal popover={(isOpen, setState) => {
-                return <button class="cursor-pointer focus:outline-none" role="button" onClick={() => setState(!isOpen())}>
-                    <VerticalEllipsisPopover />
-                </button>
-            }}>
-                {({ setState }) => (<For each={props.actions?.(item)}>
-                    {action => <DropDownButtonMinimalItem onClick={() => {
-                        setState(false);
-                        action.onClick(item);
-                    }}><Show when={action.icon}>{action.icon}</Show><I18nTag domain={action.localizationDomain}>{action.label}</I18nTag></DropDownButtonMinimalItem>}
-                </For>)
-                }
-            </DropDownButtonMinimal>
+            <Show when={props.actions?.(item)?.length}>
+                <DropDownButtonMinimal popover={(isOpen, setState) => {
+                    return <button class="cursor-pointer focus:outline-none" role="button" onClick={() => setState(!isOpen())}>
+                        <VerticalEllipsisPopover />
+                    </button>
+                }}>
+                    {({ setState }) => (<For each={props.actions?.(item)}>
+                        {action => <DropDownButtonMinimalItem onClick={() => {
+                            setState(false);
+                            action.onClick(item);
+                        }}><Show when={action.icon}>{action.icon}</Show><I18nTag domain={action.localizationDomain}>{action.label}</I18nTag></DropDownButtonMinimalItem>}
+                    </For>)
+                    }
+                </DropDownButtonMinimal>
+            </Show>
         </li>
     }
 
