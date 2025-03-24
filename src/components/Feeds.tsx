@@ -34,7 +34,7 @@ export function Feeds<TItem>(props: {
             <div class="flex-1">
                 {props.renderItem(item)}
             </div>
-            <Show when={props.timeAgo}>
+            <Show when={timeAgo}>
                 <time class="flex-none py-0.5 text-xs/5 text-gray-500">
                     <TimeAgo date={timeAgo} />
                 </time>

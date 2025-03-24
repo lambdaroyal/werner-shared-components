@@ -7,7 +7,7 @@ interface TimeAgoProps {
 }
 
 export const TimeAgo: Component<TimeAgoProps> = (props) => {
-    const getTimeAgo = createMemo(() => {
+    const timeAgo = createMemo(() => {
         const now = new Date();
         const then = props.date ? props.date : props.timestamp ? new Date(props.timestamp) : new Date();
         const diffMs = now.getTime() - then.getTime();
@@ -40,7 +40,7 @@ export const TimeAgo: Component<TimeAgoProps> = (props) => {
         return `less than 30min ago`;
     });
 
-    return <Show when={props.timestamp}>
-        <span><I18nTag>{getTimeAgo()}</I18nTag></span>
+    return <Show when={timeAgo()}>
+        <span><I18nTag>{timeAgo()}</I18nTag></span>
     </Show>;
 }; 
