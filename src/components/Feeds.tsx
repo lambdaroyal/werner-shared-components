@@ -21,6 +21,7 @@ export function Feeds<TItem>(props: {
 }) {
 
     const Item = ({ item, last }: { item: TItem, last: boolean }) => {
+        const timeAgo = props.timeAgo?.(item)
         return <li class="relative flex items-start gap-x-4">
             <Show when={last}>
                 <div class="absolute top-0 -bottom-6 left-0 flex w-6 justify-center">
@@ -35,9 +36,7 @@ export function Feeds<TItem>(props: {
             </div>
             <Show when={props.timeAgo}>
                 <time class="flex-none py-0.5 text-xs/5 text-gray-500">
-                    <Show when={typeof props.timeAgo!(item) === "object"}>
-                        <TimeAgo date={props.timeAgo!(item)} />
-                    </Show>
+                    <TimeAgo date={timeAgo} />
                 </time>
             </Show>
             <Show when={props.actions?.(item)?.length}>
