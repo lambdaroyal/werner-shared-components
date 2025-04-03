@@ -170,6 +170,97 @@ export const Default: Story = {
     }
 };
 
+export const WithHeaderAndFooter: Story = {
+    render: () => {
+        // Create signals for the mock functionality
+        const [printingConfig, setPrintingConfig] = createSignal<any[]>([]);
+        const [itemToPrint, setItemToPrint] = createSignal<TCompletedTask | null>(null);
+        const modalDialogOpen = [false, (open: boolean) => console.log('Modal dialog:', open)];
+
+        // Mock services
+        const printingServices = {
+            getLabelTypesAndPrintersForJobTxTypeAndDevice: (item: TCompletedTask, deviceId: string) => {
+                console.log('Getting label types for', item, 'on device', deviceId);
+                return Promise.resolve([
+                    { labelType: 'Standard', printers: ['Printer1', 'Printer2'] }
+                ]);
+            }
+        };
+
+        const deviceContext = {
+            deviceInfo: () => ({ 'device/id': 'DEVICE-001' })
+        };
+
+        const completedTasks = mockCompletedTasks;
+
+        return (
+            <FormLayout>
+                <FormVerticalSection>
+                    <Feeds<TCompletedTask>
+                        actions={(item: TCompletedTask) => {
+                            switch (item._type) {
+                                case "drainage":
+                                    return [{
+                                        label: "Print drainage label",
+                                        icon: <AiOutlinePrinter />,
+                                        localize: true,
+                                        onClick: (item: TCompletedTask) => {
+                                            printingServices.getLabelTypesAndPrintersForJobTxTypeAndDevice(item, deviceContext.deviceInfo()["device/id"]!)
+                                                .then((config: any) => {
+                                                    setPrintingConfig(config);
+                                                    setItemToPrint(item);
+                                                    //modalDialogOpen[1](true);
+                                                })
+                                                .catch((err: Error) => {
+                                                    Notifications.handleException(err);
+                                                })
+                                        }
+                                    }]
+                                case "sewage_disposal":
+                                    return [{
+                                        label: "Print sewage disposal label",
+                                        icon: <AiOutlinePrinter />,
+                                        localize: true,
+                                        onClick: (item: TCompletedTask) => {
+                                            printingServices.getLabelTypesAndPrintersForJobTxTypeAndDevice(item, deviceContext.deviceInfo()["device/id"]!)
+                                                .then((config: any) => {
+
+                                                    // check if we got any available labeltypes and printers, iff not throw error
+                                                    if (config.length === 0) {
+                                                        throw new Error("No label types configured for this task type");
+                                                    }
+
+                                                    setPrintingConfig(config);
+                                                    setItemToPrint(item);
+                                                    //modalDialogOpen[1](true);
+                                                })
+                                                .catch((err: Error) => {
+                                                    Notifications.handleException(err);
+                                                })
+                                        }
+                                    }]
+                                default:
+                                    return []
+                            }
+
+                        }}
+                        items={() => completedTasks}
+                        timeAgo={(item) => item.created_at!}
+                        renderHeader={(item) => <div>Header</div>}
+                        renderFooter={(item) => <div>Footer</div>}
+                        renderItem={(item) => <Switch>
+                            <Match when={item._type === "drainage"}>
+                                <TxDrainageView item={item} />
+                            </Match>
+                            <Match when={item._type === "sewage_disposal"}>
+                                <TxSewageDisposalView item={item as ITxSewageDisposal} />
+                            </Match>
+                        </Switch>} />
+                </FormVerticalSection>
+            </FormLayout>
+        );
+    }
+};
 
 const sampleData = [
     {
