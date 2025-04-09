@@ -3,6 +3,7 @@ import { I18nTag } from "../I18nTag";
 import clsx from 'clsx'
 import { AiOutlineCloseCircle } from "../icons";
 import { OverLay } from "./Overlay";
+import { I18n } from "../..";
 
 
 interface SideOverProps {
@@ -31,7 +32,7 @@ export const SideOver = (props: SideOverProps) => {
   const configJson = getConfigJson();
 
 
-  const [size, setSize] = createSignal(configJson.size || "big");
+  const [size, setSize] = createSignal<"big" | "small">(configJson.size || "big");
 
   const handleEscape = (e: KeyboardEvent) => {
     if (e.code === "Escape") {
@@ -49,42 +50,24 @@ export const SideOver = (props: SideOverProps) => {
     localStorage.setItem(sessionVarKey, JSON.stringify({ ...configJson, size: size(), }));
   }
 
-  const changeWidth = (size: string) => {
+  const changeWidth = (size: "big" | "small") => {
     setSize(size);
     saveSession();
   };
 
   const SizeChangeButtonGroup = () => (
     <div class="flex items-center	gap-2 invisible lg:visible">
-      <span class="text-nowrap"><I18nTag key={size() == "small" ? "Small view" : "Large view"} /></span>
-      <button
-        type="button"
-        onclick={(_) => changeWidth(size() === "small" ? "large" : "small")}
-        classList={{
-          "bg-indigo-600": size() === "large",
-          "bg-gray-200": size() !== "large"
-        }}
-        class="std-ring relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
-        role="switch"
+      <span class="text-nowrap">{size() == "big" ? I18n.localize("Large view") : I18n.localize("Small view")}</span>
+      <input type="checkbox" class={clsx("toggle toggle-sm", size() == "big" ? "toggle-success" : undefined)}
+        checked={size() == "big"}
+        onclick={() => changeWidth(size() == "small" ? "big" : "small")}
         aria-checked="false"
-      >
-        <span
-          aria-hidden="true"
-          classList={{
-            "translate-x-5": size() === "large",
-            "translate-x-0": size() !== "large"
-          }}
-          class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white dark:bg-black shadow ring-0 transition duration-200 ease-in-out" />
-      </button>
+      />
     </div>
   );
 
   const sideOverwidth = () => {
-    if (size() === "small") {
-      return props.big ? "lg:max-w-7xl" : "lg:max-w-md"
-    } else {
-      return props.big ? "lg:max-w-full" : "lg:max-w-5xl"
-    }
+    return clsx("w-full lg", size() == "big" ? "lg:max-w-7xl 2xl:max-w-[60rem]" : "lg:max-w-2xl")
   }
 
   const renderSizeChangeButton = () => {
@@ -100,7 +83,7 @@ export const SideOver = (props: SideOverProps) => {
 
         <div class="fixed inset-0 overflow-hidden">
           <div class="absolute inset-0 overflow-hidden disabled-overlay">
-            <div class={`pointer-events-none fixed inset-y-0 right-0 flex max-w-full`}>
+            <div class={`pointer-events-none fixed inset-y-0 right-0 flex`}>
               {/*
                 Slide-over panel, show/hide based on slide-over state.
 
@@ -111,7 +94,7 @@ export const SideOver = (props: SideOverProps) => {
                   From: "translate-x-0"
                   To: "translate-x-full"
              */}
-              <div class={clsx(sideOverwidth(), "pointer-events-auto w-screen max-w-full")}>
+              <div class={clsx(sideOverwidth(), "pointer-events-auto w-screen")}>
                 <div class="flex flex-col overflow-y-auto non-boundary py-6 shadow-xl" style={{ height: "100vh" }}>
                   <div class="px-4">
                     <div class="flex items-start justify-between">
@@ -120,13 +103,10 @@ export const SideOver = (props: SideOverProps) => {
                       </h2>
                       <div class="ml-3 flex h-7 items-center gap-x-2">
                         {renderSizeChangeButton()}
-                        <button
-                          type="button"
-                          class="flex items-center rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
-                          onclick={() => props.setIsVisible(false)}>
-                          <span class="sr-only"><I18nTag key="Close panel" /></span>
+                        <div role="button" class="flex items-center gap-x-2 cursor-pointer" onclick={() => props.setIsVisible(false)}>
+                          <kbd class="kbd invisible lg:visible">ESC</kbd>
                           <AiOutlineCloseCircle aria-hidden="true" />
-                        </button>
+                        </div>
                       </div>
                     </div>
                   </div>

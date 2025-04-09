@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+.form-vertical-section {
+    @apply my-6 pt-4;
+}
+
+
+
+.form-vertical-section:not(:first-child):not(.no-border) {
+    @apply border-t border-gray-900/10;
+}
+
+
+.form-button-bar {
+    @apply flex justify-end my-6 pt-4 border-t border-gray-900/10 pb-12;
+}
+
+
+.form-header {
+    @apply flex items-center gap-x-2 border-b border-gray-700 mb-4 text-base font-semibold
+}

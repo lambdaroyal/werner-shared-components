@@ -152,13 +152,13 @@ export class Notifications {
 
         const description = notification.error ? I18n.reactiveLocalize(notification.error.message) : undefined;
         return <div ref={setEl}
-            class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-            <div class="ml-3 w-100 p-4 pt-0.5">
+            class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-neutral-300 ring-opacity-5">
+            <div class="ml-3 w-full p-4 pt-0.5">
                 <div class="flex items-center gap-x-2">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <Switch>
                             <Match when={notification.state == NotificationState.PROGRESS}>
-                                <div class="animate-spin flex-shrink-0">
+                                <div class="animate-spin shrink-0">
                                     <svg class="ah-6 w-6 text-gray-400" fill="none" stroke-width="3" stroke="currentColor" aria-hidden="true" viewBox="0 0 24 24" stroke-dasharray="20">
                                         <circle cx="12" cy="12" r="8" stroke-width="0.5" stroke-dasharray="0" />
                                         <g fill="none" stroke-width="2"><path d="M 4 12 A 8 8 0 0 1 20 12"></path></g>
@@ -211,9 +211,9 @@ export class Notifications {
                 </Show>
                 <div class="mt-3 flex space-x-7">
                     <Show when={notification.undo}>
-                        <button type="button" class="rounded-md bg-white text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"><I18nTag>undo</I18nTag></button>
+                        <button type="button" class="rounded-md bg-white text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"><I18nTag>undo</I18nTag></button>
                     </Show>
-                    <button onclick={() => dismiss()} type="button" class="rounded-md bg-white text-sm font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"><I18nTag>dismiss</I18nTag></button>
+                    <button onclick={() => dismiss()} type="button" class="rounded-md bg-white text-sm font-medium text-gray-700 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"><I18nTag>dismiss</I18nTag></button>
                 </div>
             </div>
         </div>
